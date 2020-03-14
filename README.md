@@ -14,7 +14,13 @@ CS 6314 - Web Programming Languages - Final Project
 Resort app listening on port 3000 
 Resort app db connection successful
 ```
-**Backend POSTMAN Instructions:**
+**Frontend Instructions:**
+1. `cd Frontend/hotel-resort`
+2. `npm install`
+3. `npm start`
+
+
+**Backend Instructions:**
 
 (Once localhost connection is successful at port: 3000)
 
