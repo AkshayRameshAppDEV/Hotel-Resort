@@ -31,5 +31,9 @@ Resort app db connection successful
 
 4. To get users try localhost:3000/users, you will get list of all users.
 
-
  ```
+
+ **Utilities:**
+
+ 1. Download MongoDB Compass for User Friendly DB Visulaization including table representation (https://www.mongodb.com/products/compass)
+ 2. In the MongoDB Compass --> New Connection: Paste `mongodb://localhost/ResortApp` and click connect.
