@@ -15,7 +15,8 @@ Resort app listening on port 3000
 Resort app db connection successful
 ```
 **Backend POSTMAN Instructions:**
-Once localhost connection is successful at port: 3000
+
+(Once localhost connection is successful at port: 3000)
 
 1. Testing POSTMAN API's 
 ```
