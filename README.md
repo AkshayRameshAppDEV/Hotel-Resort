@@ -22,7 +22,7 @@ Resort app db connection successful
 ```
  1. Goto `POST Create New user` on left bar
  2. On right side Click Body
- 3. Copy paste the below JSON and Click the Send Blue button (It should gice response when successful):
+ 3. Copy paste the below JSON and Click the Send Blue button (It should give response when successful):
  {
 	"firstName": "NAME",
 	"lastName": "KS",
