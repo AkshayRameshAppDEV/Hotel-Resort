@@ -18,7 +18,11 @@ Resort app db connection successful
 1. `cd Frontend/hotel-resort`
 2. `npm install`
 3. In package.json, 
+
+
 If **Windows** change the scripts part: 
+
+
   "scripts": {
     "start": "set PORT=3060 react-scripts start",
     "build": "react-scripts build",
@@ -26,13 +30,18 @@ If **Windows** change the scripts part:
     "eject": "react-scripts eject"
   }
 
+
 If **MAC** change the scripts part: 
+
+
   "scripts": {
     "start": "PORT=3060 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   }
+
+  
 4. `npm start`
 
 
