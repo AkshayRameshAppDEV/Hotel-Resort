@@ -19,29 +19,29 @@ Resort app db connection successful
 2. `npm install`
 3. In package.json, 
 
-
-If **Windows** change the scripts part: 
-
-
-  "scripts": {
-    "start": "set PORT=3060 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  }
+```javascript
+	If **Windows** change the scripts part: 
 
 
-If **MAC** change the scripts part: 
+	"scripts": {
+		"start": "set PORT=3060 react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	}
 
 
-  "scripts": {
-    "start": "PORT=3060 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  }
+	If **MAC** change the scripts part: 
 
-  
+
+	"scripts": {
+		"start": "PORT=3060 react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	}
+```
+
 4. `npm start`
 
 
