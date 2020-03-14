@@ -10,5 +10,8 @@ Instructions to compile the project:
 2. Type `npm install`
 3. Type `node app`
 4. You should get the below message in the terminal and type `localhost:3000` in your browser
-`Resort app listening on port 3000`
-`Resort app db connection successful`
+
+```
+Resort app listening on port 3000 
+Resort app db connection successful
+```
