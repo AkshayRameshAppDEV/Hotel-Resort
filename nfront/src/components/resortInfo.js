@@ -8,7 +8,7 @@ class ResortInfo extends React.Component {
             <div>
                 <h1>This is our resort info yo</h1>
             </div>
-        )
+        );
     }
 }
 
