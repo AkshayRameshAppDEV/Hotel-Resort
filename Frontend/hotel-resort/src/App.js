@@ -9,6 +9,7 @@ function App() {
 <div className="demo-big-content">
     <Layout>
         <Header className="header-color" title={<Navigation><Link to="/">Mountain Hotel Resort</Link></Navigation>} scroll>
+            {/* To use Link inside Navigation, the routes have to be defined in the components/main.js */}
             <Navigation>
                 <Link to="/register">Register</Link>
                 <Link to="/login">Login</Link>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Grid, Cell, Navigation } from 'react-mdl';
 import {Link} from 'react-router-dom';
 
+// This is the landing page when the user first opens the app
 class LandingPage extends Component {
     render() {
         return (
@@ -23,13 +24,13 @@ class LandingPage extends Component {
 
                             <div className="social-links">
 
-                                {/* Register */}
+                                {/* Register Button in the left part of the middle sectionmiddle*/}
 
                                     <Navigation>
                                         <Link to="/register"><i className="fa fa-user-plus" aria-hidden="true" /></Link>
                                     </Navigation>
 
-                                {/* Login */}
+                                {/* Login Button in the right part of the middle section*/}
                                 <Navigation>
                                         <Link to="/login"><i className="fa fa-sign-in" aria-hidden="true" /></Link>
                                 </Navigation>
