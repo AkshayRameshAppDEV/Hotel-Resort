@@ -7,47 +7,28 @@ CS 6314 - Web Programming Languages - Final Project
 2. Clone the repo
 3. Open the repo in your favorite editor
 4. cd `Hotel-Resort REPO`
-2. Type `npm install`
-3. Type `node app`
-4. You should get the below message in the terminal and type `localhost:3000` in your browser
-```
-Resort app listening on port 3000 
-Resort app db connection successful
-```
+5. Type `npm install`
+
 **Frontend Instructions:**
-1. `cd Frontend/hotel-resort`
+1. `cd nfront`
 2. `npm install`
-3. In package.json, 
-
-```javascript
-	If **Windows** change the scripts part: 
-
-
-	"scripts": {
-		"start": "set PORT=3060 react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	}
-
-
-	If **MAC** change the scripts part: 
-
-
-	"scripts": {
-		"start": "PORT=3060 react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	}
-```
-
-4. `npm start`
-
+3. `npm start`
 
 **Backend Instructions:**
 
-(Once localhost connection is successful at port: 3000)
+1. `cd Backend`
+2. `npm install`
+3. `node app`
+4. You should get the below message in the terminal
+
+```
+Resort app listening on port 5000 
+Resort app db connection successful
+```
+
+5. Go to `localhost:5000` in your browser
+
+(Once localhost connection is successful at port: 5000)
 
 1. Testing POSTMAN API's 
 ```
