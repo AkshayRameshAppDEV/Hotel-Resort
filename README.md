@@ -36,12 +36,12 @@ Resort app db connection successful
  2. On right side Click Body
  3. Copy paste the below JSON and Click the Send Blue button (It should give response when successful):
  {
-	"firstName": "NAME",
-	"lastName": "KS",
-	"email": "name@gmail.com"
+	"firstName": {First Name},
+	"lastName": {Last Name},
+	"email": {Email}
 }
 
-4. To get users try localhost:3000/users, you will get list of all users.
+4. To get users try localhost:5000/users, you will get list of all users.
 
  ```
 
