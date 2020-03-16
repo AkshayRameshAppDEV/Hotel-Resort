@@ -35,7 +35,6 @@ class CarouselSection extends React.Component {
                     <img
                         className="d-block w-100"
                         src={image2}
-                        blurRadius={23}
                         alt="Third slide"
                     />
 
