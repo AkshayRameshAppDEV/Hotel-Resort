@@ -7,14 +7,18 @@ CS 6314 - Web Programming Languages - Final Project
 2. Clone the repo
 3. Open the repo in your favorite editor
 4. cd `Hotel-Resort REPO`
-5. Type `npm install`
+5. Choose **Frontend(nfront)** or **Backend** to work on 
 
-**Frontend Instructions:**
+---
+
+**Frontend Compile Instructions:**
 1. `cd nfront`
 2. `npm install`
 3. `npm start`
 
-**Backend Instructions:**
+---
+
+**Backend Compile Instructions:**
 
 1. `cd Backend`
 2. `npm install`
@@ -44,6 +48,8 @@ Resort app db connection successful
 4. To get users try localhost:5000/users, you will get list of all users.
 
  ```
+ 
+---
 
  **Utilities:**
 
