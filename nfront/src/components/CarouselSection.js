@@ -3,7 +3,6 @@ import { Carousel } from 'react-bootstrap';
 import image1 from '../images/first.jpeg';
 import image2 from '../images/second.jpeg';
 import image3 from '../images/third.jpeg';
-import blurRadius from 'react-blur';
 
 
 // This is the carousel component after navbar which is used in App.js
