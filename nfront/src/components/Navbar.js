@@ -1,5 +1,14 @@
 import React from 'react';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
+import Login from './Login';
+
 // This is the bootstrap navbar component which is used in App.js
 
 class Navbar extends React.Component {
@@ -12,8 +21,10 @@ class Navbar extends React.Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto">
-                        <a className="nav-item nav-link" href="#">Register <span className="sr-only">(current)</span></a>
-                        <a className="nav-item nav-link" href="#">Login</a>
+                        {/* <a className="nav-item nav-link" href="#">Register <span className="sr-only">(current)</span></a>
+                        <a className="nav-item nav-link" href="#">Login</a> */}
+                        <Link to="/login" className="nav-item nav-link">Login</Link>
+                        <Link to="/signup" className="nav-item nav-link">Sign Up</Link>
                     </div>
                 </div>
             </nav>
