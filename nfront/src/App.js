@@ -1,24 +1,36 @@
 import React from 'react';
-import './App.css'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from'jquery';
-import Popper from'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-// import the components that we create
-import ResortInfo from './components/resortInfo';
-import Navbar from './components/Navbar';
-import CarouselSection from './components/CarouselSection';
 
-// This will be the starting point, or the root, of the frontend page. 
+// import all components that we need to link
+import Home from './components/Home';
+
+// Entry point of the app. This will now act as the router component. 
+// Home.js is the homepage component.
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <CarouselSection/> 
-      <ResortInfo/>
-    </div>
-  );
+    <Router>
+      <div>
+        <Switch>
+
+          {/* ...other routes 
+          
+              Homepage route should come last
+          */}
+
+          <Route path="/">
+            <Home />
+          </Route>
+
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
 export default App;
