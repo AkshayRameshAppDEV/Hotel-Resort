@@ -43,7 +43,7 @@ class SignUp extends React.Component {
 
                             <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                             <p className="forgot-password text-right">
-                                Already registered {<Link to="/login">sign in?</Link>}
+                                Already registered? {<Link to="/login">Log in</Link>}
                             </p>
                         </form>
                     </div>
