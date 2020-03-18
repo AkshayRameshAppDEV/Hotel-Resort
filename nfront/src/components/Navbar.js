@@ -1,13 +1,8 @@
 import React from 'react';
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
-
-import Login from './Login';
 
 // This is the bootstrap navbar component which is used in App.js
 
