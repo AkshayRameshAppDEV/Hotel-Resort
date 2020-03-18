@@ -92,6 +92,7 @@ class Login extends React.Component {
 
         }
 
+        // When all input is correct. This is where we will call backend API later
         if (!errorExists) {
             this.setState({emailError: '', passwordError: ''}, () => console.log(this.state));
         }
