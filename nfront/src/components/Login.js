@@ -29,10 +29,18 @@ class Login extends React.Component {
                     <div className="auth-inner">
                         <form onSubmit={this.submitPressed}>
                             <h3>Log In</h3>
-
+                            {/**
+                                 * Adding id to identify email, password because
+                                 * this.handleChange event takes only original type such as
+                                 * text,email, password. Since username, first and last name
+                                 * are of type text, then event.target.id = text, which will 
+                                 * create unecessary issues in the variable names. After setting id,
+                                 * event.target.id = id
+                                 * FAIL SAFE METHOD
+                                 */}
                             <div className="form-group">
                                 <label>Email address</label>
-                                <input type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
+                                <input id="email" type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
                                 <div style={{ fontSize: 12, color: "red" }}>
                                     {this.state.emailError}
                                 </div>
@@ -40,7 +48,7 @@ class Login extends React.Component {
 
                             <div className="form-group">
                                 <label>Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" onChange={this.handleChange} />
+                                <input id="password" type="password" className="form-control" placeholder="Enter password" onChange={this.handleChange} />
                                 <div style={{ fontSize: 12, color: "red" }}>
                                     {this.state.passwordError}
                                 </div>
@@ -59,7 +67,7 @@ class Login extends React.Component {
 
     // as the user types email and passwod, keep updating state
     handleChange = event => {
-        this.setState({[event.target.type]: event.target.value});
+        this.setState({ [event.target.id]: event.target.value });
     };
 
     // once user presses submit button
@@ -94,7 +102,7 @@ class Login extends React.Component {
 
         // When all input is correct. This is where we will call backend API later
         if (!errorExists) {
-            this.setState({emailError: '', passwordError: ''}, () => console.log(this.state));
+            this.setState({ emailError: '', passwordError: '' }, () => console.log(this.state));
         }
     }
 }
