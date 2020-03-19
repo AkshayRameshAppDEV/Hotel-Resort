@@ -6,7 +6,7 @@ import {
     Switch,
     Route,
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 // Just an example component. We will create components like these and render them in App.js.
 
@@ -18,7 +18,7 @@ class SignUp extends React.Component {
                 <div className="auth-wrapper">
                     <div className="auth-inner">
 
-                        <form action= {<Link to="/"></Link>}>
+                        <form action={<Link to="/"></Link>}>
                             <h3>Sign Up</h3>
 
                             <div className="form-group">
@@ -29,6 +29,11 @@ class SignUp extends React.Component {
                             <div className="form-group">
                                 <label>Last name</label>
                                 <input type="text" className="form-control" placeholder="Last name" />
+                            </div>
+
+                            <div className="form-group">
+                                <label>Username</label>
+                                <input type="text" className="form-control" placeholder="Username" />
                             </div>
 
                             <div className="form-group">
