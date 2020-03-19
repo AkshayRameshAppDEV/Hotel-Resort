@@ -28,6 +28,58 @@ class SignUp extends React.Component {
 
         this.submitPressed = this.submitPressed.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.passwordOnFocus = this.passwordOnFocus.bind(this, 'passwordOnFocusRef');
+        this.passwordOnBlur = this.passwordOnBlur.bind(this, 'passwordOnBlurRef');
+        this.passwordOnKeyUp = this.passwordOnKeyUp.bind(this, 'passwordOnKeyUpRef');
+    }
+
+    passwordOnFocus(refName, e) {
+        this.refs.messageRef.style.display = "block";
+    }
+
+    passwordOnBlur(refName, e) {
+        this.refs.messageRef.style.display = "none";
+    }
+
+    passwordOnKeyUp(refName, e) {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (e.target.value.match(lowerCaseLetters)) {
+            this.refs.letterRef.classList.remove("invalid");
+            this.refs.letterRef.classList.add("valid");
+        } else {
+            this.refs.letterRef.classList.remove("valid");
+            this.refs.letterRef.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (e.target.value.match(upperCaseLetters)) {
+            this.refs.capitalRef.classList.remove("invalid");
+            this.refs.capitalRef.classList.add("valid");
+        } else {
+            this.refs.capitalRef.classList.remove("valid");
+            this.refs.capitalRef.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (e.target.value.match(numbers)) {
+            this.refs.numberRef.classList.remove("invalid");
+            this.refs.numberRef.classList.add("valid");
+        } else {
+            this.refs.numberRef.classList.remove("valid");
+            this.refs.numberRef.classList.add("invalid");
+        }
+
+        // Validate length
+        if (e.target.value.length >= 8) {
+            this.refs.lengthRef.classList.remove("invalid");
+            this.refs.lengthRef.classList.add("valid");
+        } else {
+            this.refs.lengthRef.classList.remove("valid");
+            this.refs.lengthRef.classList.add("invalid");
+        }
     }
 
     render() {
@@ -84,10 +136,27 @@ class SignUp extends React.Component {
 
                             <div className="form-group">
                                 <label>Password</label>
-                                <input id="password" type="password" className="form-control" placeholder="Enter password" onChange={this.handleChange} />
+                                <input id="password"
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Enter password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    onChange={this.handleChange}
+                                    onFocus={this.passwordOnFocus} ref="passwordOnFocus"
+                                    onBlur={this.passwordOnBlur} ref="passwordOnBlur"
+                                    onKeyUp={this.passwordOnKeyUp} ref="passwordOnKeyUp"
+                                />
                                 <div style={{ fontSize: 12, color: "red" }}>
                                     {this.state.passwordError}
                                 </div>
+                            </div>
+
+                            <div id="message" ref="messageRef">
+                                <h5>Password must contain the following:</h5>
+                                <p ref="letterRef" id="letter" className="invalid">A <b>lowercase</b> letter</p>
+                                <p ref="capitalRef" id="capital" className="invalid">A <b>capital (uppercase)</b> letter</p>
+                                <p ref="numberRef" id="number" className="invalid">A <b>number</b></p>
+                                <p ref="lengthRef" id="length" className="invalid">Minimum <b>8 characters</b></p>
                             </div>
 
                             <button type="submit" className="btn btn-primary btn-block" onClick={this.submitPressed}>Sign Up</button>
@@ -121,15 +190,21 @@ class SignUp extends React.Component {
 
         if (this.state.email == '') {
             emailError = 'Email cannot be blank';
-        } else if (!/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test(this.state.email)) {
+        } else if (!(/([\w\-]+\@[\w\-]+\.[\w\-]+)/g.test(this.state.email))) {
             console.log(this.state.email + ' at time of validation');
             emailError = 'Please enter a valid email address';
         }
 
         if (this.state.password == '') {
             passwordError = 'Password cannot be blank';
-        } else if (this.state.password.length < 6) {
+        } else if (this.state.password.length < 8) {
             passwordError = 'Password length must be atleast six characters';
+        } else if (!(/[a-z]/g.test(this.state.password))) {
+            passwordError = 'Should contain atleast a lowercase letter';
+        } else if (!(/[A-Z]/g.test(this.state.password))) {
+            passwordError = 'Should contain atleast an uppercase letter';
+        } else if (!(/[0-9]/g.test(this.state.password))) {
+            passwordError = 'Should contain a number';
         }
 
         if (this.state.userName == '') {
