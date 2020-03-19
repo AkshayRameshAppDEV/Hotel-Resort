@@ -57,4 +57,5 @@ Resort app db connection successful
  2. In the MongoDB Compass --> New Connection: Paste `mongodb://localhost/ResortApp` and click connect.
 
  **Planning:**
- Planning Link: https://docs.google.com/document/d/1uvlGkROn5JnN_gttVX3d2Tej06pMQ9Drd0wnXnnySj4/edit?ts=5e72fa41
+ 
+ Docs: https://docs.google.com/document/d/1uvlGkROn5JnN_gttVX3d2Tej06pMQ9Drd0wnXnnySj4/edit?ts=5e72fa41
