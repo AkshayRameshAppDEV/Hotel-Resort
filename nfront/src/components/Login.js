@@ -74,9 +74,9 @@ class Login extends React.Component {
 
         if (this.state.email == '') {
             emailError = 'Email cannot be blank';
-        } else if (!this.state.email.includes('@')) {
+        } else if (!/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test(this.state.email)) {
             console.log(this.state.email + ' at time of validation');
-            emailError = 'Invalid email';
+            emailError = 'Please enter a valid email address';
         }
 
         if (this.state.password == '') {
