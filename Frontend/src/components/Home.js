@@ -8,6 +8,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 // import the components that we create
 import ResortInfo from './resortInfo';
 import Navbar from './Navbar';
+import CheckAvailabilityNavbar from './CheckAvailabilityNavbar';
 import CarouselSection from './CarouselSection';
 
 // Landing page component.
@@ -16,6 +17,7 @@ function Home() {
     <div className="Home">
       <Navbar/>
       <CarouselSection/> 
+      <CheckAvailabilityNavbar/>
       <ResortInfo/>
     </div>
   );
