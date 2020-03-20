@@ -18,6 +18,7 @@ class Navbar extends React.Component {
                     <div className="navbar-nav ml-auto">
                         {/* <a className="nav-item nav-link" href="#">Register <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Login</a> */}
+                        <Link to="/" className="nav-item nav-link">About</Link>
                         <Link to="/login" className="nav-item nav-link">Login</Link>
                         <Link to="/signup" className="nav-item nav-link">Sign Up</Link>
                     </div>
