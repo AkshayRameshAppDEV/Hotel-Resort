@@ -11,6 +11,7 @@ import {
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import RoomList from './components/RoomList';
 
 // Entry point of the app. This will now act as the router component. 
 // Home.js is the homepage component.
@@ -31,6 +32,10 @@ function App() {
 
           <Route path="/signup">
             <SignUp />
+          </Route>
+
+          <Route path="/roomlist">
+            <RoomList />
           </Route>
 
           <Route path="/">
