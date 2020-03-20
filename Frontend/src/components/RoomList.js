@@ -45,7 +45,7 @@ class RoomList extends React.Component {
         // do api call
 
         let rooms = [];
-        rooms.push(['moscow, chennai, dallas, houston, rome']);
+        rooms.push('moscow', 'chennai', 'houston', 'dallas');
 
         this.setState({ rooms });
 
