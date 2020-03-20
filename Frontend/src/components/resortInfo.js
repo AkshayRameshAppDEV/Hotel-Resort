@@ -14,13 +14,15 @@ class ResortInfo extends React.Component {
                     <Container>
                         <Row>
                             <Col>
-                                <p id="aboutUsHeading">About Us</p>
+                                <h1 id="aboutUsHeading">About Us</h1>
 
-                                <h2 id="resortNameHeading">Awesome Resort</h2>
+                                <h1>Hotel Resort</h1>
 
-                                <p>
-                                    Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome
-                                    Awesome Resort is so awesome Awesome Resort is so awesome
+                                <p id="aboutHotelDescription">
+                                    Hotel Resorts is one of the most recognized name in the industry, and lots of travelers who come to our resort from around the world have been constantly saying “Hotel Resort is simply the best place to and has lot of facilities”.  We have also featured in 2019 Travel magazine for our best innovation approach and strategy. Hotel Resort helps making each traveler easier with our simple design, great innovation concepts and hospitality. We strive to provide our customers with the highest quality all the time. 
+                                    <br/>
+                                    <br/>
+                                    Wish you a very Happy Stay!
                                 </p>
                             </Col>
 
@@ -43,8 +45,8 @@ class ResortInfo extends React.Component {
                         <Row>
                             <Col lg="12">
                                 <div>
-                                    <h1>What We Do</h1>
-                                    <h2>Discover Our Services</h2>
+                                    <h1 id="whatWeDoHeading">What We Do</h1>
+                                    <h1>Discover Our Services</h1>
                                 </div>
                             </Col>
                         </Row>

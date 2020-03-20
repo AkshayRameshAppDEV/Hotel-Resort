@@ -54,20 +54,25 @@
     font-size: 50px;
   }
 #aboutUsHeading {
-	font-size: 14px;
 	color: #dfa974;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
-#resortNameHeading {
-	font-size: 44px;
-	color: #19191a;
-	line-height: 58px;
-	margin-top: 10px;
-}
-
 #aboutus {
 	padding: 100px;
 }
+
+#whatWeDoHeading {
+	color: #dfa974;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+ #aboutHotelDescription{
+
+	border: 5px solid #dfa974;
+	padding: 10px;
+	
+ }
