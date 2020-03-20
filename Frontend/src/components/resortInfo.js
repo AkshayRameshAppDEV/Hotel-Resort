@@ -19,8 +19,8 @@ class ResortInfo extends React.Component {
                                 <h2 id="resortNameHeading">Awesome Resort</h2>
 
                                 <p>
-                                    Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome 
-                                    Awesome Resort is so awesome Awesome Resort is so awesome 
+                                    Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome
+                                    Awesome Resort is so awesome Awesome Resort is so awesome
                                 </p>
                             </Col>
 
@@ -39,17 +39,17 @@ class ResortInfo extends React.Component {
 
                 <div id="whatwedo">
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
+                    <Container>
+                        <Row>
+                            <Col lg="12">
                                 <div>
                                     <h1>What We Do</h1>
                                     <h2>Discover Our Services</h2>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-plane"></i>
                                     <h4>Travel Plan</h4>
@@ -57,37 +57,37 @@ class ResortInfo extends React.Component {
                                     adventure trips to Grand Canyon.
                                     </p>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-cutlery"></i>
                                     <h4>Catering Service</h4>
                                     <p>We provide excellent catering services with lot of cuisine varities from around the world.</p>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-user-circle"></i>
                                     <h4>Babysitting</h4>
                                     <p> We provide excellent babysitting services including storytelling, games and much more.
                                     </p>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-home"></i>
                                     <h4>Laundry</h4>
                                     <p>We provide washing and drying and it all covers in the hotel cost.</p>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-car"></i>
                                     <h4>Hire Driver</h4>
                                     <p>We have experienced drivers who can take you for tours around town and also to your place of work.</p>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
+                            </Col>
+                            <Col lg="4" sm="6">
                                 <div class="service-item">
                                     <i class="fa fa-beer"></i>
                                     <h4>Bar & Drink</h4>
@@ -95,9 +95,9 @@ class ResortInfo extends React.Component {
                                         Open 7 days a week, H Bar is the perfect spot to unwind over cocktails and small plates. Seated next to our Lobby area in the heart of the hotel, H Bar offers an expansive space to socialize, catch a game, or just chill with a glass of wine and a good book.
                                     </p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
 
                 </div>
 
