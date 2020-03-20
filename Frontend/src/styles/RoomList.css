@@ -1,0 +1,7 @@
+#roomlistSpinner {
+    justify-content: center;
+    align-items: center;
+    background-color: center;
+    display: flex;
+    padding: 100px;
+}
