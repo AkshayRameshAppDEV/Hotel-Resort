@@ -49,3 +49,7 @@
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
+
+.fa{
+    font-size: 50px;
+  }

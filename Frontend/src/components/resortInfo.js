@@ -40,7 +40,7 @@ class ResortInfo extends React.Component {
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="section-title">
+                                <div>
                                     <h1>What We Do</h1>
                                     <h2>Discover Our Services</h2>
                                 </div>
@@ -49,7 +49,7 @@ class ResortInfo extends React.Component {
                         <div class="row">
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-036-parking"></i>
+                                    <i class="fa fa-plane"></i>
                                     <h4>Travel Plan</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
@@ -57,7 +57,7 @@ class ResortInfo extends React.Component {
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-033-dinner"></i>
+                                    <i class="fa fa-cutlery"></i>
                                     <h4>Catering Service</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
@@ -65,7 +65,7 @@ class ResortInfo extends React.Component {
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-026-bed"></i>
+                                    <i class="fa fa-user-circle"></i>
                                     <h4>Babysitting</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
@@ -73,7 +73,7 @@ class ResortInfo extends React.Component {
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-024-towel"></i>
+                                    <i class="fa fa-home"></i>
                                     <h4>Laundry</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
@@ -81,7 +81,7 @@ class ResortInfo extends React.Component {
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-044-clock-1"></i>
+                                    <i class="fa fa-car"></i>
                                     <h4>Hire Driver</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
@@ -89,7 +89,7 @@ class ResortInfo extends React.Component {
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="service-item">
-                                    <i class="flaticon-012-cocktail"></i>
+                                    <i class="fa fa-beer"></i>
                                     <h4>Bar & Drink</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
