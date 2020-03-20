@@ -99,6 +99,24 @@ class ResortInfo extends React.Component {
                     </div>
 
                 </div>
+
+                <div id="roomsInformation">
+                    <h1>Rooms Info</h1>
+                </div>
+
+
+                <div id="activities">
+                    <h1>Activities</h1>
+                </div>
+
+
+                <div id="nearbyAttractions">
+                    <h1>NearBy Attractions</h1>
+                </div>
+
+                <div id="footer">
+                    <h1>Footer</h1>
+                </div>
             </div>
         );
     }
