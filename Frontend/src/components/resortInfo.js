@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/resortInfo.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import image1 from '../images/pic1.jpg';
+import image2 from '../images/pic2.jpg';
 
 // Contains all resort info
 
@@ -14,21 +16,21 @@ class ResortInfo extends React.Component {
                             <Col>
                                 <p id="aboutUsHeading">About Us</p>
 
-                                <h3 id="resortNameHeading">Our Resort Name</h3>
+                                <h2 id="resortNameHeading">Awesome Resort</h2>
 
                                 <p>
-                                    Sona.com is a leading online accommodation site. We’re passionate about travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41 languages.
-                                    So when it comes to booking the perfect hotel, vacation rental, resort, apartment, guest house, or tree house, we’ve got you covered.
+                                    Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome Awesome Resort is so awesome 
+                                    Awesome Resort is so awesome Awesome Resort is so awesome 
                                 </p>
                             </Col>
 
                             <Row>
                                 <Col>
-                                    <img src="https://colorlib.com/preview/theme/sona/img/about/about-1.jpg" />
+                                    <img src={image1} />
                                 </Col>
 
                                 <Col>
-                                    <img src="https://colorlib.com/preview/theme/sona/img/about/about-2.jpg" />
+                                    <img src={image2} />
                                 </Col>
                             </Row>
                         </Row>
