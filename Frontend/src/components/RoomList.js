@@ -2,6 +2,10 @@ import React from 'react';
 import { Spinner, ListGroup } from 'react-bootstrap';
 import '../styles/RoomList.css';
 
+import {
+    withRouter
+} from "react-router-dom";
+
 class RoomList extends React.Component {
 
     constructor(props) {
@@ -10,6 +14,9 @@ class RoomList extends React.Component {
             loading: true,
             rooms: []
         }
+
+        console.log('location')
+        console.log(this.props.location);
     }
 
     render() {
@@ -53,4 +60,4 @@ class RoomList extends React.Component {
     }
 }
 
-export default RoomList;
+export default withRouter(RoomList);
