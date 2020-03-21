@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema, 
-ObjectId = Schema.ObjectId;
 
 const reservationSchema = new mongoose.Schema({
     checkInDate: {
@@ -12,7 +10,7 @@ const reservationSchema = new mongoose.Schema({
         required: true
     },
     userID: {
-        type: ObjectId,
+        type: String,
         required: true
     }
 });
