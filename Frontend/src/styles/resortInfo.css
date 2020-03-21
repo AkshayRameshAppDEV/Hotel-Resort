@@ -143,3 +143,280 @@
 .hp-room-items .hp-room-item .hr-text .primary-btn:after {
 	background: #ffffff;
 }
+
+.doubleroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .doubleroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .doubleroom:hover .fadedbox { opacity: 0.8; }
+      .doubleroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .doubleroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .doubleroom:hover .title,
+      .doubleroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }
+/******************************************/
+      .premiumkingroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .premiumkingroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .premiumkingroom:hover .fadedbox { opacity: 0.8; }
+      .premiumkingroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .premiumkingroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .premiumkingroom:hover .title,
+      .premiumkingroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }
+/*********************************************/
+      .deluxeroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .deluxeroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .deluxeroom:hover .fadedbox { opacity: 0.8; }
+      .deluxeroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .deluxeroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .deluxeroom:hover .title,
+      .deluxeroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }
+
+      .deluxeroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .deluxeroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .deluxeroom:hover .fadedbox { opacity: 0.8; }
+      .deluxeroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .deluxeroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .deluxeroom:hover .title,
+      .deluxeroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }
+
+/*********************************************/
+      .familyroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .familyroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .familyroom:hover .fadedbox { opacity: 0.8; }
+      .familyroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .familyroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .familyroom:hover .title,
+      .familyroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }
+
+      .familyroom {
+      cursor: pointer;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      width: 400px;
+      text-align:center;
+      }
+      .familyroom .fadedbox {
+      background-color: #666666;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 360px;
+      height: 100px;
+      padding: 130px 20px;
+      }
+      .familyroom:hover .fadedbox { opacity: 0.8; }
+      .familyroom .text {
+      -webkit-transition: all 300ms ease-out;
+      -moz-transition: all 300ms ease-out;
+      -o-transition: all 300ms ease-out;
+      -ms-transition: all 300ms ease-out;
+      transition: all 300ms ease-out;
+      transform: translateY(30px);
+      -webkit-transform: translateY(30px);
+      }
+      .familyroom .title {
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+      }
+      .familyroom:hover .title,
+      .familyroom:focus .title {
+      opacity: 1;
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      }

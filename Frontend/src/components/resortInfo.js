@@ -111,8 +111,10 @@ class ResortInfo extends React.Component {
                      <Container>
                         <Row>
                             <Col lg="3" md="6">
-                                <div styles={{ backgroundImage: `url(${image3})` }}>
-                                    <div class="hr-text">
+                                <div class = "doubleroom">
+                                    <img src={image3}  width="400" height="300"/>
+                                    <div class="fadedbox">
+                                        <div class="title text">
                                         <h3>Double Room</h3>
                                 <h2>199$<span>/Pernight</span></h2>
                                 <table>
@@ -136,12 +138,15 @@ class ResortInfo extends React.Component {
                                     </tbody>
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
+                                </div>
                                     </div>
                                 </div>
                             </Col>
                             <Col lg="3" md="6">
-                                <div styles={{ backgroundImage: `url(${image4})` }}>
-                                    <div class="hr-text">
+                                <div class = "premiumkingroom">
+                                <img src={image4}  width="400" height="300"/>
+                                    <div class="fadedbox">
+                                        <div class="title text">
                                         <h3>Premium King Room</h3>
                                 <h2>159$<span>/Pernight</span></h2>
                                 <table>
@@ -166,11 +171,14 @@ class ResortInfo extends React.Component {
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
                                     </div>
+                                     </div>
                                 </div>
                             </Col>
                             <Col lg="3" md="6">
-                                <div styles={{ backgroundImage: `url(${image5})` }}>
-                                    <div class="hr-text">
+                                <div class = "deluxeroom">
+                                <img src={image5}  width="400" height="300"/>
+                                    <div class="fadedbox">
+                                    <div class="title text">
                                         <h3>Deluxe Room</h3>
                                 <h2>198$<span>/Pernight</span></h2>
                                 <table>
@@ -195,11 +203,14 @@ class ResortInfo extends React.Component {
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
                                     </div>
+                                    </div>
                                 </div>
                             </Col>
                             <Col lg="3" md="6">
-                                <div styles={{ backgroundImage: `url(${image6})` }}>
-                                    <div class="hr-text">
+                                <div class = "familyroom">
+                                <img src={image6}  width="400" height="300"/>
+                                    <div class="fadedbox">
+                                    <div class="title text">
                                         <h3>Family Room</h3>
                                 <h2>299$<span>/Pernight</span></h2>
                                 <table>
@@ -223,6 +234,7 @@ class ResortInfo extends React.Component {
                                     </tbody>
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
+                                    </div>
                                     </div>
                                 </div>
                             </Col>
