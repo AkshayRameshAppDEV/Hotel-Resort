@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/CheckAvailabilityNavbar.css';
 
 import {
-    Link, Redirect
+    Redirect, withRouter
 } from "react-router-dom";
 
 // This is the bootstrap navbar component which is used in App.js
@@ -12,11 +12,18 @@ class CheckAvailabilityNavbar extends React.Component {
         super(props);
         this.state = {
             redirect: false,
+            checkInDate: '',
+            checkoutDate: '',
+            numGuests: 1,
+            numRooms: 1
         };
 
         this.submitPressed = this.submitPressed.bind(this);
         this.handleCheckInDateChange = this.handleCheckInDateChange.bind(this);
         this.getCurrentDateInYYYYMMDDFormat = this.getCurrentDateInYYYYMMDDFormat.bind(this);
+
+        console.log('availability loc');
+        console.log(this.props.location);
     }
 
     // as the user changes the check in date update the checkout date to start from check in date onwards
@@ -25,6 +32,17 @@ class CheckAvailabilityNavbar extends React.Component {
     };
 
     submitPressed = event => {
+
+        let {checkIn, checkOut, guests, rooms} = event.target;
+
+        let checkinDate = checkIn.value,
+            checkoutDate = checkOut.value,
+            numGuests = guests.value,
+            numRooms = rooms.value;
+        
+        // console.log(checkIn.value + " " + checkOut.value + " " + guests.value + " " + rooms.value);
+
+        this.setState({checkinDate, checkoutDate, numGuests, numRooms});
 
         this.setState({ redirect: true })
 
@@ -59,16 +77,25 @@ class CheckAvailabilityNavbar extends React.Component {
     render() {
         if (this.state.redirect) {
 
-            return (<Redirect to="/roomlist" />);
+            let {checkinDate, checkoutDate, numGuests, numRooms} = this.state;
+
+            return (
+                <Redirect
+                    to={{
+                        pathname: "/roomlist",
+                        data: { checkinDate: checkinDate, checkoutDate: checkoutDate, numGuests: numGuests, numRooms: numRooms }
+                    }}
+                />
+            );
         }
         return (
             <nav class="navbar sticky-top bg-warning">
                 <div class="navbar-brand">Booking Your Hotel</div>
                 <form class="form-inline" onSubmit={this.submitPressed}>
                     <label for="checkIn">Check In:</label>
-                    <input class="form-control" type="date" id="checkIn" name="checkIn" ref="checkInDateRef" onChange={this.handleCheckInDateChange} required/>
+                    <input class="form-control" type="date" id="checkIn" name="checkIn" ref="checkInDateRef" onChange={this.handleCheckInDateChange} required />
                     <label for="checkOut">Check Out:</label>
-                    <input class="form-control" type="date" id="checkOut" name="checkOut" ref="checkOutDateRef" required/>
+                    <input class="form-control" type="date" id="checkOut" name="checkOut" ref="checkOutDateRef" required />
 
                     <label for="guests">Guests:</label>
                     <select class="form-control" id="guests">
@@ -93,4 +120,4 @@ class CheckAvailabilityNavbar extends React.Component {
     }
 }
 
-export default CheckAvailabilityNavbar;
+export default withRouter(CheckAvailabilityNavbar);
