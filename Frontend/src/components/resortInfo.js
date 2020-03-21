@@ -3,6 +3,10 @@ import '../styles/resortInfo.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import image1 from '../images/pic1.jpg';
 import image2 from '../images/pic2.jpg';
+import image3 from '../images/room-b1.jpg';
+import image4 from '../images/room-b2.jpg';
+import image5 from '../images/room-b3.jpg';
+import image6 from '../images/room-b4.jpg';
 
 // Contains all resort info
 
@@ -104,7 +108,126 @@ class ResortInfo extends React.Component {
                 </div>
 
                 <div id="roomsInformation">
-                    <h1>Rooms Info</h1>
+                     <Container>
+                        <Row>
+                            <Col lg="3" md="6">
+                                <div styles={{ backgroundImage: `url(${image3})` }}>
+                                    <div class="hr-text">
+                                        <h3>Double Room</h3>
+                                <h2>199$<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Size:</td>
+                                            <td>30 ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Capacity:</td>
+                                            <td>Max persion 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Bed:</td>
+                                            <td>King Beds</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col lg="3" md="6">
+                                <div styles={{ backgroundImage: `url(${image4})` }}>
+                                    <div class="hr-text">
+                                        <h3>Premium King Room</h3>
+                                <h2>159$<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Size:</td>
+                                            <td>30 ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Capacity:</td>
+                                            <td>Max persion 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Bed:</td>
+                                            <td>King Beds</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col lg="3" md="6">
+                                <div styles={{ backgroundImage: `url(${image5})` }}>
+                                    <div class="hr-text">
+                                        <h3>Deluxe Room</h3>
+                                <h2>198$<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Size:</td>
+                                            <td>30 ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Capacity:</td>
+                                            <td>Max persion 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Bed:</td>
+                                            <td>King Beds</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col lg="3" md="6">
+                                <div styles={{ backgroundImage: `url(${image6})` }}>
+                                    <div class="hr-text">
+                                        <h3>Family Room</h3>
+                                <h2>299$<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Size:</td>
+                                            <td>30 ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Capacity:</td>
+                                            <td>Max persion 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Bed:</td>
+                                            <td>King Beds</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                     </Container>
                 </div>
 
 
