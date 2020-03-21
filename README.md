@@ -58,6 +58,7 @@ Resort app db connection successful
  3. For only MAC OS
  
 	**Start Service**: brew services start mongodb-community@4.2
+	
 	**Stop Service**: brew services stop mongodb-community@4.2
 
 
