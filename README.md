@@ -55,6 +55,12 @@ Resort app db connection successful
 
  1. Download MongoDB Compass for User Friendly DB Visulaization including table representation (https://www.mongodb.com/products/compass)
  2. In the MongoDB Compass --> New Connection: Paste `mongodb://localhost/ResortApp` and click connect.
+ 3. For only MAC OS
+ 
+	**Start Service**: brew services start mongodb-community@4.2
+	**Stop Service**: brew services stop mongodb-community@4.2
+
+
 
  **Planning:**
  
