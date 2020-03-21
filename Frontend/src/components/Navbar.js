@@ -9,7 +9,7 @@ import {
 class Navbar extends React.Component {
     render() {
         return (
-            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">Hotel Resort</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -18,7 +18,6 @@ class Navbar extends React.Component {
                     <div className="navbar-nav ml-auto">
                         {/* <a className="nav-item nav-link" href="#">Register <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Login</a> */}
-                        <Link to="/" className="nav-item nav-link">About</Link>
                         <Link to="/login" className="nav-item nav-link">Login</Link>
                         <Link to="/signup" className="nav-item nav-link">Sign Up</Link>
                     </div>

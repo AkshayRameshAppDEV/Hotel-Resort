@@ -1,0 +1,9 @@
+input, select{
+    margin: 10px;
+}
+
+.submitButtonColor{
+    
+    background-color: rgb(3, 240, 74);
+    font-weight: bold;
+}
