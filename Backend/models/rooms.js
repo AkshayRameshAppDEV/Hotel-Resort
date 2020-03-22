@@ -26,7 +26,7 @@ const roomSchema = new mongoose.Schema({
         required: true
     },
     reservations: {
-        type: String,
+        type: Array,
         required: true
     }
 

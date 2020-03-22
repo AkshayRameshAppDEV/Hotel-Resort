@@ -20,6 +20,10 @@ app.use(express.json());
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+// redirect /rooms to roomsRouter
+const roomsRouter = require('./routes/rooms');
+app.use('/rooms', roomsRouter);
+
 app.get('/', (req, res) => {
     res.send("This is the resort app.");
 })
