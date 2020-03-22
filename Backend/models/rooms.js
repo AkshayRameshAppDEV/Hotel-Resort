@@ -17,14 +17,6 @@ const roomSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    checkInDate: {
-        type: Date,
-        required: true
-    },
-    checkOutDate: {
-        type: Date,
-        required: true
-    },
     reservations: {
         type: Array,
         required: true

@@ -24,6 +24,10 @@ app.use('/users', usersRouter);
 const roomsRouter = require('./routes/rooms');
 app.use('/rooms', roomsRouter);
 
+// redirect /rooms to roomsRouter
+const reservationsRouter = require('./routes/reservations');
+app.use('/reservations', reservationsRouter);
+
 app.get('/', (req, res) => {
     res.send("This is the resort app.");
 })
