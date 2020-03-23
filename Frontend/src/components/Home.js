@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from'jquery';
-import Popper from'popper.js';
+import $ from 'jquery';
+import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 // import the components that we create
@@ -15,10 +15,10 @@ import CarouselSection from './CarouselSection';
 function Home() {
   return (
     <div className="Home">
-      <Navbar/>
-      <CarouselSection/> 
-      <CheckAvailabilityNavbar/>
-      <ResortInfo/>
+      <Navbar />
+      <CarouselSection />
+      <CheckAvailabilityNavbar />
+      <ResortInfo />
     </div>
   );
 }

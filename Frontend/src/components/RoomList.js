@@ -6,6 +6,8 @@ import {
     withRouter
 } from "react-router-dom";
 
+import Listify from '../components/Listify';
+
 class RoomList extends React.Component {
 
     constructor(props) {
@@ -32,7 +34,7 @@ class RoomList extends React.Component {
 
                 return (
                     <div className="roomsAvailable">
-                        <this.listify rooms={this.state.rooms} />
+                        <Listify rooms={this.state.rooms} />
                     </div>
                 )
 
@@ -49,29 +51,6 @@ class RoomList extends React.Component {
             }
 
         }
-    }
-
-    listify(props) {
-
-        const rooms = props.rooms;
-        console.log("ROOMS FOR UI");
-        console.log(rooms)
-        const roomListItems = rooms.map((room) =>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{room.roomType} Room</h5>
-                    <button class="btn btn-success">RESERVE</button>
-                </div>
-                <p class="mb-1">Type of Bed Available: {room.bedDetails}</p>
-                <p class="mb-1">Price :${room.price}</p>
-                <p class="mb-1">Total Number of Guests Who can stay in this room: {room.numOfGuests}</p>
-            </a>
-        );
-        return (
-            <div class="list-group w-100">
-                {roomListItems}
-            </div>
-        );
     }
 
     componentDidMount() {
