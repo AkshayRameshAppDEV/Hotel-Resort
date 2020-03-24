@@ -6,7 +6,10 @@ import image2 from '../images/pic2.jpg';
 import image3 from '../images/room-b1.jpg';
 import image4 from '../images/room-b2.jpg';
 import image5 from '../images/room-b3.jpg';
-import image6 from '../images/room-b4.jpg';
+import image6 from '../images/canyon.jpg';
+import image7 from '../images/seaworld.jpg';
+
+
 
 // Contains all resort info
 
@@ -55,7 +58,7 @@ class ResortInfo extends React.Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col lg="4" sm="6">
+                            <Col>
                                 <div class="service-item">
                                     <i class="fa fa-plane"></i>
                                     <h4>Travel Plan</h4>
@@ -71,7 +74,7 @@ class ResortInfo extends React.Component {
                                     <p>We provide excellent catering services with lot of cuisine varities from around the world.</p>
                                 </div>
                             </Col>
-                            <Col lg="4" sm="6">
+                            <Col>
                                 <div class="service-item">
                                     <i class="fa fa-user-circle"></i>
                                     <h4>Babysitting</h4>
@@ -86,7 +89,7 @@ class ResortInfo extends React.Component {
                                     <p>We provide washing and drying and it all covers in the hotel cost.</p>
                                 </div>
                             </Col>
-                            <Col lg="4" sm="6">
+                            <Col>
                                 <div class="service-item">
                                     <i class="fa fa-car"></i>
                                     <h4>Hire Driver</h4>
@@ -109,14 +112,21 @@ class ResortInfo extends React.Component {
 
                 <div id="roomsInformation">
                      <Container>
+                     <Row>
+                            <Col lg="12">
+                                <div>
+                                    <h1 id="roomsInfo">Available Rooms</h1>
+                                </div>
+                            </Col>
+                        </Row>
                         <Row>
                             <Col lg="3" md="6">
                                 <div class = "doubleroom">
                                     <img src={image3}  width="400" height="300"/>
                                     <div class="fadedbox">
                                         <div class="title text">
-                                        <h3>Double Room</h3>
-                                <h2>199$<span>/Pernight</span></h2>
+                                        <h3>Standard Room</h3>
+                                <h2>129$<span>/Pernight</span></h2>
                                 <table>
                                     <tbody>
                                         <tr>
@@ -125,11 +135,11 @@ class ResortInfo extends React.Component {
                                         </tr>
                                         <tr>
                                             <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td>Max person 2</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
+                                            <td>Twin Beds</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
@@ -140,38 +150,6 @@ class ResortInfo extends React.Component {
                                 <a href="#" class="primary-btn">More Details</a>
                                 </div>
                                     </div>
-                                </div>
-                            </Col>
-                            <Col lg="3" md="6">
-                                <div class = "premiumkingroom">
-                                <img src={image4}  width="400" height="300"/>
-                                    <div class="fadedbox">
-                                        <div class="title text">
-                                        <h3>Premium King Room</h3>
-                                <h2>159$<span>/Pernight</span></h2>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a href="#" class="primary-btn">More Details</a>
-                                    </div>
-                                     </div>
                                 </div>
                             </Col>
                             <Col lg="3" md="6">
@@ -185,19 +163,19 @@ class ResortInfo extends React.Component {
                                     <tbody>
                                         <tr>
                                             <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td>50 ft</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td>Max person 4</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
+                                            <td>Queen Beds</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
+                                            <td>Wifi, Television, Bathroom, Gym, Swimming Pool...</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -207,21 +185,21 @@ class ResortInfo extends React.Component {
                                 </div>
                             </Col>
                             <Col lg="3" md="6">
-                                <div class = "familyroom">
-                                <img src={image6}  width="400" height="300"/>
+                                <div class = "premiumkingroom">
+                                <img src={image4}  width="400" height="300"/>
                                     <div class="fadedbox">
-                                    <div class="title text">
-                                        <h3>Family Room</h3>
-                                <h2>299$<span>/Pernight</span></h2>
+                                        <div class="title text">
+                                        <h3>Royal Room</h3>
+                                <h2>259$<span>/Pernight</span></h2>
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td>80 ft</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td>Max person 6</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Bed:</td>
@@ -229,31 +207,154 @@ class ResortInfo extends React.Component {
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
+                                            <td>Wifi, Television, Bathroom, Spa, Complimentary Lunch, Private Gym...</td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
                                     </div>
-                                    </div>
+                                     </div>
                                 </div>
                             </Col>
+                           
                         </Row>
                      </Container>
                 </div>
 
 
                 <div id="activities">
-                    <h1>Activities</h1>
+                     <Container>
+                        <Row>
+                            <Col lg="12">
+                                <div>
+                                    <h1 id="activitiesHeading">Activities</h1>
+                                    <h1>Activities We Provide</h1>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div class="service-item">
+                                    <i class="fa fa-plane"></i>
+                                    <h4>Bicycling</h4>
+                                    <p>We offer bicycles including two-seater bikes and children’s bikes with training 
+                                    wheels as a complimentary amenity for guests.
+                                    </p>
+                                </div>
+                            </Col>
+                            <Col lg="4" sm="6">
+                                <div class="service-item">
+                                    <i class="fa fa-cutlery"></i>
+                                    <h4>Tennis</h4>
+                                    <p>Our tennis facility includes six HydroGrid® clay courts 
+                                    where guests can play and train with our certified
+                                     United States Professional Tennis Association (USPTA) Professional.</p>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div class="service-item">
+                                    <i class="fa fa-user-circle"></i>
+                                    <h4>Fitness</h4>
+                                    <p> Maintain your regular fitness routine with cardiovascular equipment and a three-station weight machine in our fitness room.
+                                    </p>
+                                </div>
+                            </Col>
+                            <Col lg="4" sm="6">
+                                <div class="service-item">
+                                    <i class="fa fa-car"></i>
+                                    <h4>Golfing</h4>
+                                    <p>Take a break from the beach and spend an afternoon at The Dunes Golf & Tennis Club. This masterfully designed 18 hole championship course is set within a stunning wildlife preserve and welcomes guests of our Resort.</p>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div class="service-item">
+                                    <i class="fa fa-home"></i>
+                                    <h4>Swimming</h4>
+                                    <p>Jump into the sparkling blue-green waters of the Gulf of Mexico or choose from the five heated pools on property,
+                                     including the main pool with children’s water slide.</p>
+                                </div>
+                            </Col>
+                            
+                            <Col lg="4" sm="6">
+                                <div class="service-item">
+                                    <i class="fa fa-beer"></i>
+                                    <h4>Paddling</h4>
+                                    <p>
+                                        Paddle and play with our onsite kayaks and paddleboards, a complimentary amenity for guests.
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
 
 
                 <div id="nearbyAttractions">
-                    <h1>NearBy Attractions</h1>
+                     <Container>
+                        <Row>
+                            <Col lg="12">
+                                <div>
+                                    <h1 id="nearbyAttractionsHeading">Nearby Attractions</h1>
+                                    <h1>Sights to Visit</h1>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg="8">
+                                <img src={image6}  width="700" height="500"/>
+                            </Col>
+                            <Col lg="4" id="aboutHotelDescription">
+                            <h1 id="aboutUsHeading">Grand Canyon</h1>
+
+                                <p>
+                                    Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history. Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower. Lipan Point, with wide views of the canyon and Colorado River, is a popular, especially at sunrise and sunset.
+                                </p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg="4" id="aboutHotelDescription">
+                            <h1 id="aboutUsHeading">Sea World</h1>
+
+                                <p>
+                                    SeaWorld San Antonio is a 250-acre marine mammal park, oceanarium and animal theme park, in the Westover Hills District of San Antonio, Texas, on the city’s west side. It is the largest of the three parks in the SeaWorld chain owned by SeaWorld Entertainment and one of the world's largest marine-life theme parks focused on conservation, education and animal rescue. The other SeaWorld parks are in San Diego, California and Orlando, Florida. It is a member of the Alliance of Marine Mammal Parks and Aquariums and is accredited by the Association of Zoos and Aquariums.
+                                </p>
+                            </Col>
+                            <Col lg="8">
+                                <img src={image7}  width="700" height="500"/>
+                            </Col>
+                        </Row>
+                     </Container>
                 </div>
 
-                <div id="footer">
-                    <h1>Footer</h1>
+                <div class="footer-section">
+                    <Container>
+                    <div class="footer-text">
+                        <Row>
+                        <Col lg="6">
+                        <div class="ft-about">
+                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <div>
+                                <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
+                                <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>&nbsp;&nbsp;
+                                <a href="#"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </Col>
+                    <Col lg = "6">
+                        <div class="ft-contact">
+                            <h6>Contact Us</h6>
+                            <ul>
+                                <li>(469) 427 8653</li>
+                                <li>sxk180143@utdallas.edu</li>
+                                <li>7421 Frankford Rd, Dallas, TX - 75252</li>
+                            </ul>
+                        </div>
+                    </Col>
+                </Row>
+                </div>
+            </Container>
                 </div>
             </div>
         );
