@@ -12,7 +12,10 @@ class Listify extends React.Component {
         this.state = {
             roomListItems: [],
             roomsToRender: [],
-            redirectToPayments: false
+            redirectToPayments: false,
+            roomReserved: [],
+            reserveButtonPosition: 0
+
         }
 
         this.goToPayments = this.goToPayments.bind(this);
@@ -20,19 +23,21 @@ class Listify extends React.Component {
 
     }
 
-    goToPayments = () => {
+    goToPayments = (event) => {
 
         this.setState({ redirectToPayments: true });
+        this.setState({reserveButtonPosition: event.target.getAttribute('data-key')})
 
     }
 
     componentDidMount() {
         const rooms = this.props.rooms;
-        const roomsToRender = rooms.map((room) =>
+        this.setState({roomReserved: rooms})
+        const roomsToRender = rooms.map((room, i) =>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{room.roomType} Room</h5>
-                    <button class="btn btn-success" onClick={this.goToPayments}>RESERVE</button>
+                    <button data-key={i} class="btn btn-success" onClick={this.goToPayments}>RESERVE</button>
                 </div>
                 <p class="mb-1">Type of Bed Available: {room.bedDetails}</p>
                 <p class="mb-1">Price :${room.price}</p>
@@ -55,7 +60,7 @@ class Listify extends React.Component {
             return <Redirect
                 to={{
                     pathname: "/payments",
-                    data: "From Listify"
+                    data: {roomreserve: this.state.roomReserved[this.state.reserveButtonPosition]}
                 }}
             />
         }
