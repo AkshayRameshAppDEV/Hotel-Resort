@@ -232,7 +232,7 @@ class SignUp extends React.Component {
         } else if (!(/([\w\-]+\@[\w\-]+\.[\w\-]+)/g.test(this.state.email))) {
             console.log(this.state.email + ' at time of validation');
             emailError = 'Please enter a valid email address';
-        } else if (this.state.userEmailsFromDB.includes(this.state.email)){
+        } else if (this.state.userEmailsFromDB.includes(this.state.email)) {
             emailError = 'Email already exists. Please try using another email.';
         }
 
@@ -273,7 +273,22 @@ class SignUp extends React.Component {
         // When all input is correct. This is where we will call backend API later
         if (!errorExists) {
             this.setState({ emailError: '', passwordError: '', userNameError: '', lastNameError: '', firstNameError: '' }, () => console.log(this.state));
+
+            // Simple POST request with a JSON body using fetch
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ firstName: this.state.firstName, lastName: this.state.lastName, userName: this.state.userName, email: this.state.email, password: this.state.password })
+            };
+            fetch('http://localhost:5000/users/', requestOptions)
+                .then(response => response.json())
+                .then(console.log("New User Signed up!"))
+
+            window.location.reload();
+
         }
+
+
     }
 }
 
