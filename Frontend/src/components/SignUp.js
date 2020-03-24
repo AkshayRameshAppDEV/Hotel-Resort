@@ -23,7 +23,8 @@ class SignUp extends React.Component {
             lastNameError: '',
             userNameError: '',
             emailError: '',
-            passwordError: ''
+            passwordError: '',
+            userEmailsFromDB: []
         };
 
         this.submitPressed = this.submitPressed.bind(this);
@@ -31,6 +32,8 @@ class SignUp extends React.Component {
         this.passwordOnFocus = this.passwordOnFocus.bind(this, 'passwordOnFocusRef');
         this.passwordOnBlur = this.passwordOnBlur.bind(this, 'passwordOnBlurRef');
         this.passwordOnKeyUp = this.passwordOnKeyUp.bind(this, 'passwordOnKeyUpRef');
+        this.getAllUsersFromDB = this.getAllUsersFromDB.bind(this);
+
     }
 
     passwordOnFocus(refName, e) {
@@ -170,6 +173,42 @@ class SignUp extends React.Component {
         );
     }
 
+    async getAllUsersFromDB() {
+
+        let userEmails = [];
+
+        fetch("http://localhost:5000/users/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+
+                    // console.log("RESULTS FROM USERS DB IN ASYNC METHOD \n" + JSON.stringify(result));
+
+                    const backendResults = result.map((userObjects) =>
+
+
+                        userEmails.push(userObjects.email)
+                    );
+
+
+                    this.setState({ userEmailsFromDB: userEmails });
+
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+
+                }
+            )
+
+    }
+
+    componentDidMount() {
+
+        this.getAllUsersFromDB();
+    }
+
     // as the user types first name, last name, username, email and passwod, keep updating state
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value });
@@ -193,6 +232,8 @@ class SignUp extends React.Component {
         } else if (!(/([\w\-]+\@[\w\-]+\.[\w\-]+)/g.test(this.state.email))) {
             console.log(this.state.email + ' at time of validation');
             emailError = 'Please enter a valid email address';
+        } else if (this.state.userEmailsFromDB.includes(this.state.email)){
+            emailError = 'Email already exists. Please try using another email.';
         }
 
         if (this.state.password == '') {
