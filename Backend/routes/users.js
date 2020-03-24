@@ -26,7 +26,9 @@ router.post('/', async(req, res) => {
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        userName: req.body.userName,
+        email: req.body.email,
+        password: req.body.password
     });
 
     try {
@@ -48,8 +50,16 @@ router.patch('/:id', getUser, async(req, res) => {
         res.user.lastName = req.body.lastName;
     }
 
+    if (req.body.userName) {
+        res.user.userName = req.body.userName;
+    }
+
     if (req.body.email) {
         res.user.email = req.body.email;
+    }
+
+    if (req.body.password) {
+        res.user.password = req.body.password;
     }
 
     try {

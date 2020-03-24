@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5e76e47076e8dc247c5d6d4d"},"bedDetails":[],"reservations":[],"roomType":"deluxe","price":{"$numberInt":"70"},"numOfGuests":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e76e4b176e8dc247c5d6d4e"},"bedDetails":["k1"],"reservations":["5e77d9492d842a57048e0a26"],"roomType":"deluxe","price":{"$numberInt":"70"},"numOfGuests":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e77d785033d8257044176d4"},"bedDetails":["k1"],"reservations":["5e77da50033d8257044176d5"],"roomType":"deluxe","price":{"$numberInt":"70"},"numOfGuests":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
