@@ -10,6 +10,9 @@ import {
     Link
 } from "react-router-dom";
 
+var bcrypt = require('bcryptjs');
+
+
 // Sign up page
 
 class SignUp extends React.Component {
@@ -96,7 +99,7 @@ class SignUp extends React.Component {
                 <Redirect
                     to={{
                         pathname: "/",
-                        data: { newUserId: this.state.userIdNewUser}
+                        data: { newUserId: this.state.userIdNewUser }
                     }}
                 />
             );
@@ -222,6 +225,7 @@ class SignUp extends React.Component {
     componentDidMount() {
 
         this.getAllUsersFromDB();
+
     }
 
     // as the user types first name, last name, username, email and passwod, keep updating state
@@ -289,18 +293,21 @@ class SignUp extends React.Component {
         if (!errorExists) {
             this.setState({ emailError: '', passwordError: '', userNameError: '', lastNameError: '', firstNameError: '' });
 
+            var salt = bcrypt.genSaltSync(10);
+            var hash = bcrypt.hashSync(this.state.password, salt);
+
             // Simple POST request with a JSON body using fetch
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ firstName: this.state.firstName, lastName: this.state.lastName, userName: this.state.userName, email: this.state.email, password: this.state.password })
+                body: JSON.stringify({ firstName: this.state.firstName, lastName: this.state.lastName, userName: this.state.userName, email: this.state.email, password: hash })
             };
             fetch('http://localhost:5000/users/', requestOptions)
                 .then(response => response.json())
                 .then(data => this.setState({
                     userIdNewUser: data
-                },() => {this.setState({redirect: true})}
-                
+                }, () => { this.setState({ redirect: true }) }
+
                 ));
         }
 
