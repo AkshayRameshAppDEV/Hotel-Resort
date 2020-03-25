@@ -1,12 +1,29 @@
 import React from 'react';
 
 import {
-    Link
+    Link,
+    Redirect, withRouter
   } from "react-router-dom";
+
 
 // This is the bootstrap navbar component which is used in App.js
 
 class Navbar extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        console.log('availability loc from Navbar.js - New USER ID');
+        console.log(props.location.data);
+
+    }
+
+
+
+
+
+
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,4 +45,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
