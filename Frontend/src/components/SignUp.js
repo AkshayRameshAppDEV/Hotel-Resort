@@ -5,6 +5,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    withRouter,
+    Redirect,
     Link
 } from "react-router-dom";
 
@@ -25,7 +27,8 @@ class SignUp extends React.Component {
             emailError: '',
             passwordError: '',
             userEmailsFromDB: [],
-            userIdNewUser: ""
+            userIdNewUser: "",
+            redirect: false
         };
 
         this.submitPressed = this.submitPressed.bind(this);
@@ -87,6 +90,17 @@ class SignUp extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+
+            return (
+                <Redirect
+                    to={{
+                        pathname: "/",
+                        data: { newUserId: this.state.userIdNewUser}
+                    }}
+                />
+            );
+        }
         return (
 
             <div className="center-screen signUpDivBody">
@@ -273,7 +287,7 @@ class SignUp extends React.Component {
 
         // When all input is correct. This is where we will call backend API later
         if (!errorExists) {
-            this.setState({ emailError: '', passwordError: '', userNameError: '', lastNameError: '', firstNameError: '' }, () => console.log(this.state));
+            this.setState({ emailError: '', passwordError: '', userNameError: '', lastNameError: '', firstNameError: '' });
 
             // Simple POST request with a JSON body using fetch
             const requestOptions = {
@@ -283,14 +297,15 @@ class SignUp extends React.Component {
             };
             fetch('http://localhost:5000/users/', requestOptions)
                 .then(response => response.json())
-                .then(data => this.setState({userIdNewUser: data}))
-                .then(console.log("New User Signed up!"))
-
-            console.log("New user id to be passed to home.js: " + this.state.userIdNewUser)
+                .then(data => this.setState({
+                    userIdNewUser: data
+                },() => {this.setState({redirect: true})}
+                
+                ));
         }
 
 
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

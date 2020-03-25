@@ -15,15 +15,17 @@ class CheckAvailabilityNavbar extends React.Component {
             checkInDate: '',
             checkoutDate: '',
             numGuests: 1,
-            numRooms: 1
+            numRooms: 1,
+
         };
 
         this.submitPressed = this.submitPressed.bind(this);
         this.handleCheckInDateChange = this.handleCheckInDateChange.bind(this);
         this.getCurrentDateInYYYYMMDDFormat = this.getCurrentDateInYYYYMMDDFormat.bind(this);
 
-        console.log('availability loc');
-        console.log(this.props.location);
+        console.log('availability loc from CheckAvailabilityNavbar.js - New USER ID');
+        console.log(props.location.data);
+
     }
 
     // as the user changes the check in date update the checkout date to start from check in date onwards
@@ -63,12 +65,18 @@ class CheckAvailabilityNavbar extends React.Component {
         return [year, month, day].join('-');
     }
 
+
+
+
+
     componentDidMount() {
 
 
         //DISPLAYS FROM CURRENT DATE ONWARDS BY DEFAULT AND PREVIOUS DATE ARE DISABLED
         this.refs.checkInDateRef.setAttribute('min', this.getCurrentDateInYYYYMMDDFormat());
         this.refs.checkOutDateRef.setAttribute('min', this.getCurrentDateInYYYYMMDDFormat());
+
+
 
 
 
