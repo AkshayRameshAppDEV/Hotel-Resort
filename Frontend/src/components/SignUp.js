@@ -24,7 +24,8 @@ class SignUp extends React.Component {
             userNameError: '',
             emailError: '',
             passwordError: '',
-            userEmailsFromDB: []
+            userEmailsFromDB: [],
+            userIdNewUser: ""
         };
 
         this.submitPressed = this.submitPressed.bind(this);
@@ -282,10 +283,10 @@ class SignUp extends React.Component {
             };
             fetch('http://localhost:5000/users/', requestOptions)
                 .then(response => response.json())
+                .then(data => this.setState({userIdNewUser: data}))
                 .then(console.log("New User Signed up!"))
 
-            window.location.reload();
-
+            console.log("New user id to be passed to home.js: " + this.state.userIdNewUser)
         }
 
 
