@@ -14,7 +14,12 @@ class Navbar extends React.Component {
         super(props);
 
         console.log('availability loc from Navbar.js - New USER ID');
-        console.log(props.location.data);
+        
+        if (this.props.location.data) {
+            console.log(this.props.location.data.newUserId);
+        } else {
+            console.log('user not logged in');
+        }
 
     }
 
