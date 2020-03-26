@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Login.css';
 
 import {
-    Link
+    Link, withRouter, Redirect
 } from "react-router-dom";
 
 var bcrypt = require('bcryptjs');
@@ -19,7 +19,9 @@ class Login extends React.Component {
             password: '',
             emailError: '',
             passwordError: '',
-            usersEmailIdPasswordFromDB: {}
+            usersEmailIdPasswordFromDB: {},
+            userIdNewUser: "",
+            redirect: false
         };
 
         this.submitPressed = this.submitPressed.bind(this);
@@ -27,6 +29,17 @@ class Login extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+
+            return (
+                <Redirect
+                    to={{
+                        pathname: "/",
+                        data: { newUserId: this.state.userIdNewUser}
+                    }}
+                />
+            );
+        }
         return (
             <div className="center-screen loginDivBody">
                 <div className="auth-wrapper">
@@ -158,9 +171,11 @@ class Login extends React.Component {
 
         // When all input is correct. This is where we will call backend API later
         if (!errorExists) {
-            this.setState({ emailError: '', passwordError: '' }, () => console.log(this.state));
+            this.setState({ emailError: '', passwordError: '' });
+            this.setState({userIdNewUser: this.state.usersEmailIdPasswordFromDB[this.state.email]["id"]});
+            this.setState({redirect: true});
         }
     }
 }
 
-export default Login;
+export default withRouter(Login);
