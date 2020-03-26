@@ -24,7 +24,11 @@ class CheckAvailabilityNavbar extends React.Component {
         this.getCurrentDateInYYYYMMDDFormat = this.getCurrentDateInYYYYMMDDFormat.bind(this);
 
         console.log('availability loc from CheckAvailabilityNavbar.js - New USER ID');
-        console.log(props.location.data);
+        if (this.props.location.data) {
+            console.log(this.props.location.data.newUserId);
+        } else {
+            console.log('user not logged in');
+        }
 
     }
 
