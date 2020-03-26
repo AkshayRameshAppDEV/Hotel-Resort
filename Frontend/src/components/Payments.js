@@ -4,6 +4,8 @@ import {
     Redirect, withRouter
 } from "react-router-dom";
 
+import Navbar from './Navbar';
+
 class Payments extends React.Component {
 
     constructor(props) {
@@ -42,29 +44,31 @@ class Payments extends React.Component {
         }
 
         return (
-            <div id="paymentsPageDiv">
-                <div id="reservedRoomInfoDiv">
-                    <h1>Welcome to Payments Page</h1>
-                    <h2> Your Reserved Room Information </h2>
+            <div>
+                <Navbar />
+                <div id="paymentsPageDiv">
+                    <div id="reservedRoomInfoDiv">
+                        <h1>Welcome to Payments Page</h1>
+                        <h2> Your Reserved Room Information </h2>
+                        <hr />
+                        <h4> Bed Details: {this.state.reservedBedDetails} </h4>
+                        <h4> Room Type: {this.state.reservedRoomType} </h4>
+                        <h4> Room Price: ${this.state.reservedRoomPrice} </h4>
+                        <h4> Number of Guests: {this.state.reservedRoomNumberOfGuests} </h4>
+
+                    </div>
                     <hr />
-                    <h4> Bed Details: {this.state.reservedBedDetails} </h4>
-                    <h4> Room Type: {this.state.reservedRoomType} </h4>
-                    <h4> Room Price: ${this.state.reservedRoomPrice} </h4>
-                    <h4> Number of Guests: {this.state.reservedRoomNumberOfGuests} </h4>
-
-                </div>
-                <hr />
-                <div id="paymentSectionDiv">
-                    <h1>PAYMENT SECTION DIV - User ID -> {this.state.userIdLoggedIn}</h1>
+                    <div id="paymentSectionDiv">
+                        <h1>PAYMENT SECTION DIV - User ID -> {this.state.userIdLoggedIn}</h1>
 
 
 
 
-                    <div className="center-screen loginDivBody">
-                        <div className="auth-wrapper">
-                            <div className="auth-inner">
-                                <h3>Checkout</h3>
-                                {/**
+                        <div className="center-screen loginDivBody">
+                            <div className="auth-wrapper">
+                                <div className="auth-inner">
+                                    <h3>Checkout</h3>
+                                    {/**
                                  * Adding id to identify email, password because
                                  * this.handleChange event takes only original type such as
                                  * text,email, password. Since username, first and last name
@@ -74,56 +78,57 @@ class Payments extends React.Component {
                                  * FAIL SAFE METHOD
                                  */}
 
-                                <div className="form-group">
-                                    <label>First Name</label>
-                                    <input id="fname" type="text" className="form-control" placeholder="First Name" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>First Name</label>
+                                        <input id="fname" type="text" className="form-control" placeholder="First Name" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.passwordError}
                                         </div> */}
-                                </div>
+                                    </div>
 
-                                <div className="form-group">
-                                    <label>Last Name</label>
-                                    <input id="lname" type="text" className="form-control" placeholder="Last Name" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>Last Name</label>
+                                        <input id="lname" type="text" className="form-control" placeholder="Last Name" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.passwordError}
                                         </div> */}
-                                </div>
+                                    </div>
 
-                                <div className="form-group">
-                                    <label>Email</label>
-                                    <input id="email" type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>Email</label>
+                                        <input id="email" type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.emailError}
                                         </div> */}
-                                </div>
+                                    </div>
 
-                                <div className="form-group">
-                                    <label>Phone Number</label>
-                                    <input id="phone" type="tel" className="form-control" placeholder="Phone Number" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>Phone Number</label>
+                                        <input id="phone" type="tel" className="form-control" placeholder="Phone Number" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.passwordError}
                                         </div> */}
-                                </div>
+                                    </div>
 
-                                <div className="form-group">
-                                    <label>Card Number</label>
-                                    <input id="cardnumber" type="text" className="form-control" placeholder="Enter Card Number" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>Card Number</label>
+                                        <input id="cardnumber" type="text" className="form-control" placeholder="Enter Card Number" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.passwordError}
                                         </div> */}
-                                </div>
+                                    </div>
 
-                                <div className="form-group">
-                                    <label>Expiration Date</label>
-                                    <input id="expirationdate" type="text" className="form-control" placeholder="Enter expiration date" onChange={this.handleChange} />
-                                    {/* <div style={{ fontSize: 12, color: "red" }}>
+                                    <div className="form-group">
+                                        <label>Expiration Date</label>
+                                        <input id="expirationdate" type="text" className="form-control" placeholder="Enter expiration date" onChange={this.handleChange} />
+                                        {/* <div style={{ fontSize: 12, color: "red" }}>
                                             {this.state.passwordError}
                                         </div> */}
+                                    </div>
+
+                                    <button type="submit" className="btn btn-primary btn-block" onClick={this.submitPressed}>Submit</button>
+
                                 </div>
-
-                                <button type="submit" className="btn btn-primary btn-block" onClick={this.submitPressed}>Submit</button>
-
                             </div>
                         </div>
                     </div>
@@ -142,6 +147,10 @@ class Payments extends React.Component {
         console.log("Payment.js " + this.props.location.data.userIdLoggedIn);
         this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn });
 
+        if (this.state.userIdLoggedIn == "") {
+            alert("Please log in or sign up before reserving a room.");
+        }
+
     }
 
     // as the user types first name, last name, username, email and passwod, keep updating state
@@ -152,7 +161,12 @@ class Payments extends React.Component {
     submitPressed = () => {
 
         console.log(this.state);
-        this.setState({ redirectToOrderConfirmation: true });
+
+        if (this.state.userIdLoggedIn == "") {
+            alert("Please log in or sign up before reserving a room.");
+        } else {
+            this.setState({ redirectToOrderConfirmation: true });
+        }
     }
 }
 
