@@ -14,7 +14,8 @@ class Listify extends React.Component {
             roomsToRender: [],
             redirectToPayments: false,
             roomReserved: [],
-            reserveButtonPosition: 0
+            reserveButtonPosition: 0,
+            userIdLoggedIn: ''
 
         }
 
@@ -31,6 +32,9 @@ class Listify extends React.Component {
     }
 
     componentDidMount() {
+        console.log("Listify.js "+this.props.userIdLoggedIn);
+        this.setState({ userIdLoggedIn: this.props.userIdLoggedIn});
+
         const rooms = this.props.rooms;
         this.setState({roomReserved: rooms})
         const roomsToRender = rooms.map((room, i) =>
@@ -60,7 +64,7 @@ class Listify extends React.Component {
             return <Redirect
                 to={{
                     pathname: "/payments",
-                    data: {roomreserve: this.state.roomReserved[this.state.reserveButtonPosition]}
+                    data: {roomreserve: this.state.roomReserved[this.state.reserveButtonPosition], userIdLoggedIn: this.state.userIdLoggedIn}
                 }}
             />
         }

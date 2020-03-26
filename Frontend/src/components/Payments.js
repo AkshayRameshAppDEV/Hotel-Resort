@@ -20,7 +20,8 @@ class Payments extends React.Component {
             phone: '',
             cardnumber: '',
             expirationdate: '',
-            redirectToOrderConfirmation: false
+            redirectToOrderConfirmation: false,
+            userIdLoggedIn: ''
         };
 
         console.log('RESERVED ROOM CLICKED DATA FROM LISTIFY.JS');
@@ -54,7 +55,7 @@ class Payments extends React.Component {
                 </div>
                 <hr />
                 <div id="paymentSectionDiv">
-                    <h1>PAYMENT SECTION DIV</h1>
+                    <h1>PAYMENT SECTION DIV - User ID -> {this.state.userIdLoggedIn}</h1>
 
 
 
@@ -132,11 +133,14 @@ class Payments extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({roomreserve: this.props.location.data.roomreserve});
+        this.setState({ roomreserve: this.props.location.data.roomreserve });
         this.setState({ reservedBedDetails: this.props.location.data.roomreserve.bedDetails })
         this.setState({ reservedRoomType: this.props.location.data.roomreserve.roomType })
         this.setState({ reservedRoomPrice: this.props.location.data.roomreserve.price })
         this.setState({ reservedRoomNumberOfGuests: this.props.location.data.roomreserve.numOfGuests })
+
+        console.log("Payment.js " + this.props.location.data.userIdLoggedIn);
+        this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn });
 
     }
 
@@ -148,7 +152,7 @@ class Payments extends React.Component {
     submitPressed = () => {
 
         console.log(this.state);
-        this.setState({redirectToOrderConfirmation: true});
+        this.setState({ redirectToOrderConfirmation: true });
     }
 }
 

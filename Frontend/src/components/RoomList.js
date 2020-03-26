@@ -15,7 +15,8 @@ class RoomList extends React.Component {
         this.state = {
             loading: true,
             rooms: [],
-            showData: false
+            showData: false,
+            userIdLoggedIn: ''
         }
 
         console.log('location')
@@ -34,7 +35,7 @@ class RoomList extends React.Component {
 
                 return (
                     <div className="roomsAvailable">
-                        <Listify rooms={this.state.rooms} />
+                        <Listify rooms={this.state.rooms} userIdLoggedIn={this.state.userIdLoggedIn}/>
                     </div>
                 )
 
@@ -57,6 +58,8 @@ class RoomList extends React.Component {
         // do api call
 
 
+        console.log("RoomList.js "+this.props.location.data.userIdLoggedIn);
+        this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn});
 
         fetch("http://localhost:5000/rooms/?guests=" + this.props.location.data.numGuests + "&checkinDate=" + this.props.location.data.checkinDate + "&checkoutDate=" + this.props.location.data.checkoutDate) //MAKE IT DYNAMIC from CHECK AVAILABILITY PAGE
             .then(res => res.json())

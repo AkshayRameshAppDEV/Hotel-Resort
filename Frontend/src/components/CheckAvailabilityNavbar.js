@@ -16,6 +16,7 @@ class CheckAvailabilityNavbar extends React.Component {
             checkoutDate: '',
             numGuests: 1,
             numRooms: 1,
+            userIdLoggedIn: ''
 
         };
 
@@ -23,12 +24,7 @@ class CheckAvailabilityNavbar extends React.Component {
         this.handleCheckInDateChange = this.handleCheckInDateChange.bind(this);
         this.getCurrentDateInYYYYMMDDFormat = this.getCurrentDateInYYYYMMDDFormat.bind(this);
 
-        console.log('availability loc from CheckAvailabilityNavbar.js - New USER ID');
-        if (this.props.location.data) {
-            console.log(this.props.location.data.newUserId);
-        } else {
-            console.log('user not logged in');
-        }
+
 
     }
 
@@ -39,16 +35,16 @@ class CheckAvailabilityNavbar extends React.Component {
 
     submitPressed = event => {
 
-        let {checkIn, checkOut, guests, rooms} = event.target;
+        let { checkIn, checkOut, guests, rooms } = event.target;
 
         let checkinDate = checkIn.value,
             checkoutDate = checkOut.value,
             numGuests = guests.value,
             numRooms = rooms.value;
-        
+
         // console.log(checkIn.value + " " + checkOut.value + " " + guests.value + " " + rooms.value);
 
-        this.setState({checkinDate, checkoutDate, numGuests, numRooms});
+        this.setState({ checkinDate, checkoutDate, numGuests, numRooms });
 
         this.setState({ redirect: true })
 
@@ -80,7 +76,14 @@ class CheckAvailabilityNavbar extends React.Component {
         this.refs.checkInDateRef.setAttribute('min', this.getCurrentDateInYYYYMMDDFormat());
         this.refs.checkOutDateRef.setAttribute('min', this.getCurrentDateInYYYYMMDDFormat());
 
-
+        console.log('availability loc from CheckAvailabilityNavbar.js - New USER ID');
+        if (this.props.location.data) {
+            console.log(this.props.location.data.newUserId);
+            this.setState({ userIdLoggedIn: this.props.location.data.newUserId });
+        } else {
+            console.log('user not logged in');
+            this.setState({ userIdLoggedIn: '' });
+        }
 
 
 
@@ -89,13 +92,13 @@ class CheckAvailabilityNavbar extends React.Component {
     render() {
         if (this.state.redirect) {
 
-            let {checkinDate, checkoutDate, numGuests, numRooms} = this.state;
+            let { checkinDate, checkoutDate, numGuests, numRooms, userIdLoggedIn} = this.state;
 
             return (
                 <Redirect
                     to={{
                         pathname: "/roomlist",
-                        data: { checkinDate: checkinDate, checkoutDate: checkoutDate, numGuests: numGuests, numRooms: numRooms }
+                        data: { checkinDate: checkinDate, checkoutDate: checkoutDate, numGuests: numGuests, numRooms: numRooms, userIdLoggedIn: userIdLoggedIn }
                     }}
                 />
             );
