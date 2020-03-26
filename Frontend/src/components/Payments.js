@@ -122,10 +122,7 @@ class Payments extends React.Component {
                                 </div>
 
                                 <button type="submit" className="btn btn-primary btn-block" onClick={this.submitPressed}>Submit</button>
-                                <p className="forgot-password text-right">
-                                    {/* Don't have an account yet? {<Link to="/signup">Sign up</Link>} */}
-                                    Forgot password
-                                    </p>
+
                             </div>
                         </div>
                     </div>
