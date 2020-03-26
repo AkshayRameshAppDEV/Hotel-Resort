@@ -35,7 +35,7 @@ class Navbar extends React.Component {
 
     render() {
 
-        if (this.state.firstName != '') {
+        if (this.state.firstName != '' && this.state.firstName != undefined) {
             return (
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <a className="navbar-brand" href="#">Hotel Resort</a>
