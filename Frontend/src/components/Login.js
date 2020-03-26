@@ -5,6 +5,9 @@ import {
     Link
 } from "react-router-dom";
 
+var bcrypt = require('bcryptjs');
+
+
 // Login page
 
 class Login extends React.Component {
@@ -15,7 +18,8 @@ class Login extends React.Component {
             email: '',
             password: '',
             emailError: '',
-            passwordError: ''
+            passwordError: '',
+            usersEmailIdPasswordFromDB: {}
         };
 
         this.submitPressed = this.submitPressed.bind(this);
@@ -65,6 +69,41 @@ class Login extends React.Component {
         );
     }
 
+    componentDidMount() {
+
+        var userObj = {}
+
+        fetch("http://localhost:5000/users/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+
+                    // console.log("RESULTS FROM USERS DB IN ASYNC METHOD \n" + JSON.stringify(result));
+
+                    const backendResults = result.map((userObjects) =>
+
+                        userObj[userObjects.email] = {
+                            "id": userObjects._id,
+                            "password": userObjects.password
+                        }
+                    );
+
+                    console.log(userObj)
+
+                    this.setState({ usersEmailIdPasswordFromDB: userObj });
+
+                    // this.setState({ userEmailsFromDB: userEmails });
+
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+
+                }
+            )
+    }
+
     // as the user types email and passwod, keep updating state
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value });
@@ -72,6 +111,9 @@ class Login extends React.Component {
 
     // once user presses submit button
     submitPressed = event => {
+
+        console.log(this.state.password)
+        console.log(this.state.usersEmailIdPasswordFromDB)
 
         event.preventDefault();
 
@@ -85,13 +127,27 @@ class Login extends React.Component {
         } else if (!(/([\w\-]+\@[\w\-]+\.[\w\-]+)/g.test(this.state.email))) {
             console.log(this.state.email + ' at time of validation');
             emailError = 'Please enter a valid email address';
+        } else if(!(this.state.email in this.state.usersEmailIdPasswordFromDB)){
+            emailError = 'Email address doesn\'t exist';
         }
 
-        if (this.state.password == '') {
-            passwordError = 'Password cannot be blank';
-        } else if (this.state.password.length < 6) {
-            passwordError = 'Password length must be atleast six characters';
+        if(emailError !== 'Email address doesn\'t exist'){
+
+            if (this.state.password == '') {
+                passwordError = 'Password cannot be blank';
+            } else if (this.state.password.length < 8) {
+                passwordError = 'Password length must be at least eight characters';
+            } else if (!bcrypt.compareSync(this.state.password, this.state.usersEmailIdPasswordFromDB[this.state.email]["password"])) {
+                passwordError = 'Your password is wrong. Please use the password you registered with your email.';
+            }
+
         }
+
+        else{
+            passwordError = "Make sure your email is correct first."
+        }
+
+
 
         if (emailError || passwordError) {
             errorExists = true;
