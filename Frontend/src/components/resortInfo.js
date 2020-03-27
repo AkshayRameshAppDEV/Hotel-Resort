@@ -346,9 +346,9 @@ class ResortInfo extends React.Component {
                         <div class="ft-contact">
                             <h6>Contact Us</h6>
                             <ul>
-                                <li>(469) 427 8653</li>
-                                <li>sxk180143@utdallas.edu</li>
-                                <li>7421 Frankford Rd, Dallas, TX - 75252</li>
+                                <li>(100) 100 9191</li>
+                                <li>hotelResort@wpl.edu</li>
+                                <li>7102 Hotel Rd, Hotel, TX - 7932</li>
                             </ul>
                         </div>
                     </Col>

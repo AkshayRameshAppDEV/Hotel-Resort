@@ -1,10 +1,21 @@
 import React from 'react'
+import Card from 'react-credit-cards';
 import {
 
     Redirect, withRouter
 } from "react-router-dom";
 
 import Navbar from './Navbar';
+
+import {
+    formatCreditCardNumber,
+    formatCVC,
+    formatExpirationDate,
+    formatFormData,
+} from '../styles/utils';
+import styles from '../styles/Payment.css';
+
+import 'react-credit-cards/es/styles-compiled.css';
 
 class Payments extends React.Component {
 
@@ -23,22 +34,56 @@ class Payments extends React.Component {
             cardnumber: '',
             expirationdate: '',
             redirectToOrderConfirmation: false,
-            userIdLoggedIn: ''
+            userIdLoggedIn: '',
+            number: '',
+            name: '',
+            expiry: '',
+            cvc: '',
+            focused: '',
+            redirectToLogin: false,
         };
 
         console.log('RESERVED ROOM CLICKED DATA FROM LISTIFY.JS');
 
-        this.submitPressed = this.submitPressed.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
+
+
+    handleInputFocus = ({ target }) => {
+        this.setState({
+            focused: target.name,
+        });
+    };
+
+    handleInputChange = ({ target }) => {
+        if (target.name === 'number') {
+            target.value = formatCreditCardNumber(target.value);
+        } else if (target.name === 'expiry') {
+            target.value = formatExpirationDate(target.value);
+        } else if (target.name === 'cvc') {
+            target.value = formatCVC(target.value);
+        }
+
+        this.setState({ [target.name]: target.value });
+    };
 
     render() {
 
-        if (this.state.redirectToOrderConfirmation) {
+        const { name, number, expiry, cvc, focused } = this.state;
+
+
+        if (this.state.redirectToOrderConfirmation && this.state.userIdLoggedIn) {
             return <Redirect
                 to={{
                     pathname: "/orderconfirmation",
                     data: { roomreserve: this.state.roomreserve }
+                }}
+            />
+        }
+
+        else if (this.state.redirectToLogin) {
+            return <Redirect
+                to={{
+                    pathname: "/login",
                 }}
             />
         }
@@ -58,79 +103,80 @@ class Payments extends React.Component {
 
                     </div>
                     <hr />
-                    <div id="paymentSectionDiv">
-                        <h1>PAYMENT SECTION DIV - User ID -> {this.state.userIdLoggedIn}</h1>
-
-
-
-
-                        <div className="center-screen loginDivBody">
-                            <div className="auth-wrapper">
-                                <div className="auth-inner">
-                                    <h3>Checkout</h3>
-                                    {/**
-                                 * Adding id to identify email, password because
-                                 * this.handleChange event takes only original type such as
-                                 * text,email, password. Since username, first and last name
-                                 * are of type text, then event.target.id = text, which will 
-                                 * create unecessary issues in the variable names. After setting id,
-                                 * event.target.id = id
-                                 * FAIL SAFE METHOD
-                                 */}
-
+                    <div className="paymentSectionDiv">
+                        <div key="Payment">
+                            <div className="App-payment">
+                                <h1>Payment By Credit Card</h1>
+                                <h1>We currently support VISA, Master, Diner's Club Intl, and American Express</h1>
+                                <Card
+                                    number={number}
+                                    name={name}
+                                    expiry={expiry}
+                                    cvc={cvc}
+                                    focused={focused}
+                                />
+                                <form className="Paymentform" ref={c => (this.form = c)} onSubmit={this.handleSubmit}>
                                     <div className="form-group">
-                                        <label>First Name</label>
-                                        <input id="fname" type="text" className="form-control" placeholder="First Name" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.passwordError}
-                                        </div> */}
+                                        <input
+                                            type="tel"
+                                            name="number"
+                                            className="form-control"
+                                            placeholder="Card Number"
+                                            pattern="[\d| ]{16,22}"
+                                            required
+                                            onChange={this.handleInputChange}
+                                            onFocus={this.handleInputFocus}
+                                        />
+                                        <small>E.g.: 49..., 51..., 36..., 37...</small>
                                     </div>
-
                                     <div className="form-group">
-                                        <label>Last Name</label>
-                                        <input id="lname" type="text" className="form-control" placeholder="Last Name" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.passwordError}
-                                        </div> */}
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className="form-control"
+                                            placeholder="Card Holder Name"
+                                            required
+                                            onChange={this.handleInputChange}
+                                            onFocus={this.handleInputFocus}
+                                        />
                                     </div>
-
-                                    <div className="form-group">
-                                        <label>Email</label>
-                                        <input id="email" type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.emailError}
-                                        </div> */}
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <input
+                                                type="tel"
+                                                name="expiry"
+                                                className="form-control"
+                                                placeholder="Valid Thru"
+                                                pattern="\d\d/\d\d"
+                                                required
+                                                onChange={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                            />
+                                            <small>Expiry Date: MM/YY</small>
+                                        </div>
+                                        <div className="col-6">
+                                            <input
+                                                type="tel"
+                                                name="cvc"
+                                                className="form-control"
+                                                placeholder="CVC"
+                                                pattern="\d{3,4}"
+                                                required
+                                                onChange={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                            />
+                                            <small>3 or 4 digit CVC number located back of your card.</small>
+                                        </div>
                                     </div>
-
-                                    <div className="form-group">
-                                        <label>Phone Number</label>
-                                        <input id="phone" type="tel" className="form-control" placeholder="Phone Number" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.passwordError}
-                                        </div> */}
+                                    <div className="form-actions">
+                                        <button className="btn btn-primary btn-block" onClick={this.submitPressed}>PAY</button>
                                     </div>
+                                </form>
 
-                                    <div className="form-group">
-                                        <label>Card Number</label>
-                                        <input id="cardnumber" type="text" className="form-control" placeholder="Enter Card Number" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.passwordError}
-                                        </div> */}
-                                    </div>
-
-                                    <div className="form-group">
-                                        <label>Expiration Date</label>
-                                        <input id="expirationdate" type="text" className="form-control" placeholder="Enter expiration date" onChange={this.handleChange} />
-                                        {/* <div style={{ fontSize: 12, color: "red" }}>
-                                            {this.state.passwordError}
-                                        </div> */}
-                                    </div>
-
-                                    <button type="submit" className="btn btn-primary btn-block" onClick={this.submitPressed}>Submit</button>
-
-                                </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -147,26 +193,43 @@ class Payments extends React.Component {
         console.log("Payment.js " + this.props.location.data.userIdLoggedIn);
         this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn });
 
-        if (this.state.userIdLoggedIn == "") {
-            alert("Please log in or sign up before reserving a room.");
-        }
-
     }
-
-    // as the user types first name, last name, username, email and passwod, keep updating state
-    handleChange = event => {
-        this.setState({ [event.target.id]: event.target.value });
-    };
 
     submitPressed = () => {
 
         console.log(this.state);
 
         if (this.state.userIdLoggedIn == "") {
-            alert("Please log in or sign up before reserving a room.");
-        } else {
+
+
+        }
+
+        // No Login but form empty
+
+
+        // No Login but complete form
+        if (this.state.userIdLoggedIn == "") {
+            alert("You need to login first!");
+            this.setState({ redirectToLogin: true });
+        } else if (this.state.userIdLoggedIn) {
+
+            if (this.state.number === "" && this.state.name === "" && this.state.expiry === "" && this.state.cvc === "") {
+
+                alert("Please complete the Payment form");
+                this.form.reset();
+
+            }
+
+            else {
+                this.setState({ redirectToOrderConfirmation: true });
+            }
+        }
+
+        else {
             this.setState({ redirectToOrderConfirmation: true });
         }
+
+
     }
 }
 
