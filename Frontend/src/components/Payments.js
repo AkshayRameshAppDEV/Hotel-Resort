@@ -257,6 +257,7 @@ class Payments extends React.Component {
                         console.log(reservationsArray)
 
 
+                        // PATCH REQUEST TO UPDATE reservations in rooms
                         const patchOptions = {
                             method: 'PATCH',
                             headers: { 'Content-Type': 'application/json' },
@@ -264,7 +265,14 @@ class Payments extends React.Component {
                         };
                         fetch('http://localhost:5000/rooms/' + this.state.selectedRoomID, patchOptions)
                             .then(response => response.json())
-                            .then(data => { console.log(data) });
+                            .then(data => {
+
+
+
+
+
+                            });
+
 
 
 
@@ -272,11 +280,12 @@ class Payments extends React.Component {
 
                     });
 
-                // Post reservation id to ROOMS BY ROOMS ID
+
             }
         }
 
         else {
+
             this.setState({ redirectToOrderConfirmation: true });
 
             // Simple POST request with a JSON body using fetch
@@ -287,10 +296,45 @@ class Payments extends React.Component {
             };
             fetch('http://localhost:5000/reservations/', requestOptions)
                 .then(response => response.json())
-                .then(data => console.log("RESERVATION ID: " + data));
+                .then(data => {
 
-            // Post reservation id to ROOMS BY ROOMS ID
-        }
+                    console.log("DATA in LINE 246: ")
+                    console.log(data)
+
+                    let reservationsArray = this.state.reservationsArray.slice();
+
+                    console.log("RES ARRAY BEFORE PUSH LINE 251: ")
+                    console.log(reservationsArray)
+
+                    reservationsArray.push(data)
+
+                    console.log("RES ARRAY AFTER PUSH LINE 256: ")
+                    console.log(reservationsArray)
+
+
+                    // PATCH REQUEST TO UPDATE reservations in rooms
+                    const patchOptions = {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ reservations: reservationsArray })
+                    };
+                    fetch('http://localhost:5000/rooms/' + this.state.selectedRoomID, patchOptions)
+                        .then(response => response.json())
+                        .then(data => {
+
+
+
+
+
+                        });
+
+
+
+
+
+
+                });
+        } //END ELSE
 
 
     }
