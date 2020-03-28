@@ -28,7 +28,8 @@ router.post('/', async(req, res) => {
         lastName: req.body.lastName,
         userName: req.body.userName,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        reservations: req.body.reservations
     });
 
     try {
@@ -60,6 +61,10 @@ router.patch('/:id', getUser, async(req, res) => {
 
     if (req.body.password) {
         res.user.password = req.body.password;
+    }
+
+    if (req.body.reservations) {
+        res.user.reservations = req.body.reservations;
     }
 
     try {

@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    reservations: {
+        type: Array,
+        required: true
     }
 });
 

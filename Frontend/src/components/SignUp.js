@@ -300,7 +300,7 @@ class SignUp extends React.Component {
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ firstName: this.state.firstName, lastName: this.state.lastName, userName: this.state.userName, email: this.state.email, password: hash })
+                body: JSON.stringify({ firstName: this.state.firstName, lastName: this.state.lastName, userName: this.state.userName, email: this.state.email, password: hash, reservations: [] })
             };
             fetch('http://localhost:5000/users/', requestOptions)
                 .then(response => response.json())
