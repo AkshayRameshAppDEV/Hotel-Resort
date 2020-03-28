@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     let { reservationId, checkinDate, checkoutDate } = req.query;
 
     // let reservationInfo = await Reservation.findById(reservationId);
-    let reservationInfo = await Reservation.find({userID: reservationId});
+    let reservationInfo = await Reservation.find({ userID: reservationId });
 
     let queryCheckinDate = new Date(checkinDate),
         queryCheckoutDate = new Date(checkoutDate);
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 
 // POST REQUEST
 // create reservation
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
 
     const reservation = new Reservation({
         checkInDate: req.body.checkInDate,
@@ -44,8 +44,13 @@ router.post('/', async(req, res) => {
     try {
         const newReservation = await reservation.save();
         res.json(newReservation._id);
+
+        let selectedUser = await User.update({ "_id": newReservation.userID }, { $push: { "reservations": newReservation._id } });
+
+
+
     } catch (error) {
-        res.status(400).json({message: error.message});
+        res.status(400).json({ message: error.message });
     }
 })
 
