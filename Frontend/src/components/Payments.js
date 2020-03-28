@@ -201,7 +201,7 @@ class Payments extends React.Component {
         this.setState({ checkInDateToPayment: this.props.location.data.checkInDateToPayment });
         this.setState({ checkOutDateToPayment: this.props.location.data.checkOutDateToPayment });
         this.setState({ selectedRoomID: this.props.location.data.roomreserve._id });
-        this.setState({ reservationsArray: this.props.location.data.roomreserve.reservations});
+        this.setState({ reservationsArray: this.props.location.data.roomreserve.reservations });
 
     }
 
@@ -241,9 +241,37 @@ class Payments extends React.Component {
                 };
                 fetch('http://localhost:5000/reservations/', requestOptions)
                     .then(response => response.json())
-                    .then(data => console.log("RESERVATION ID: " + data));
+                    .then(data => {
 
-                console.log("HERE")
+                        console.log("DATA in LINE 246: ")
+                        console.log(data)
+
+                        let reservationsArray = this.state.reservationsArray.slice();
+
+                        console.log("RES ARRAY BEFORE PUSH LINE 251: ")
+                        console.log(reservationsArray)
+
+                        reservationsArray.push(data)
+
+                        console.log("RES ARRAY AFTER PUSH LINE 256: ")
+                        console.log(reservationsArray)
+
+
+                        const patchOptions = {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ reservations: reservationsArray })
+                        };
+                        fetch('http://localhost:5000/rooms/' + this.state.selectedRoomID, patchOptions)
+                            .then(response => response.json())
+                            .then(data => { console.log(data) });
+
+
+
+
+
+                    });
+
                 // Post reservation id to ROOMS BY ROOMS ID
             }
         }
@@ -261,7 +289,7 @@ class Payments extends React.Component {
                 .then(response => response.json())
                 .then(data => console.log("RESERVATION ID: " + data));
 
-                // Post reservation id to ROOMS BY ROOMS ID
+            // Post reservation id to ROOMS BY ROOMS ID
         }
 
 
