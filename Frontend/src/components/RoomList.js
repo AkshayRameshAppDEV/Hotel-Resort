@@ -16,7 +16,9 @@ class RoomList extends React.Component {
             loading: true,
             rooms: [],
             showData: false,
-            userIdLoggedIn: ''
+            userIdLoggedIn: '',
+            checkInDateToPayment: '',
+            checkOutDateToPayment: ''
         }
 
         console.log('location')
@@ -35,7 +37,7 @@ class RoomList extends React.Component {
 
                 return (
                     <div className="roomsAvailable">
-                        <Listify rooms={this.state.rooms} userIdLoggedIn={this.state.userIdLoggedIn}/>
+                        <Listify rooms={this.state.rooms} userIdLoggedIn={this.state.userIdLoggedIn} checkInDateToPayment={this.state.checkInDateToPayment} checkOutDateToPayment={this.state.checkOutDateToPayment}/>
                     </div>
                 )
 
@@ -60,8 +62,10 @@ class RoomList extends React.Component {
 
         console.log("RoomList.js "+this.props.location.data.userIdLoggedIn);
         this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn});
+        this.setState({ checkInDateToPayment: this.props.location.data.checkinDate});
+        this.setState({ checkOutDateToPayment: this.props.location.data.checkoutDate});
 
-        fetch("http://localhost:5000/rooms/?guests=" + this.props.location.data.numGuests + "&checkinDate=" + this.props.location.data.checkinDate + "&checkoutDate=" + this.props.location.data.checkoutDate) //MAKE IT DYNAMIC from CHECK AVAILABILITY PAGE
+        fetch("http://localhost:5000/rooms/?guests=" + this.props.location.data.numGuests + "&checkinDate=" + this.props.location.data.checkinDate + "&checkoutDate=" + this.props.location.data.checkoutDate)
             .then(res => res.json())
             .then(
                 (result) => {

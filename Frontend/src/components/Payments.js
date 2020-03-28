@@ -41,6 +41,11 @@ class Payments extends React.Component {
             cvc: '',
             focused: '',
             redirectToLogin: false,
+            checkInDateToPayment: '',
+            checkOutDateToPayment: '',
+            reservationID: '',
+            selectedRoomID: '',
+            reservationsArray: []
         };
 
         console.log('RESERVED ROOM CLICKED DATA FROM LISTIFY.JS');
@@ -193,6 +198,11 @@ class Payments extends React.Component {
         console.log("Payment.js " + this.props.location.data.userIdLoggedIn);
         this.setState({ userIdLoggedIn: this.props.location.data.userIdLoggedIn });
 
+        this.setState({ checkInDateToPayment: this.props.location.data.checkInDateToPayment });
+        this.setState({ checkOutDateToPayment: this.props.location.data.checkOutDateToPayment });
+        this.setState({ selectedRoomID: this.props.location.data.roomreserve._id });
+        this.setState({ reservationsArray: this.props.location.data.roomreserve.reservations});
+
     }
 
     submitPressed = () => {
@@ -222,11 +232,36 @@ class Payments extends React.Component {
 
             else {
                 this.setState({ redirectToOrderConfirmation: true });
+
+                // Simple POST request with a JSON body using fetch
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn })
+                };
+                fetch('http://localhost:5000/reservations/', requestOptions)
+                    .then(response => response.json())
+                    .then(data => console.log("RESERVATION ID: " + data));
+
+                console.log("HERE")
+                // Post reservation id to ROOMS BY ROOMS ID
             }
         }
 
         else {
             this.setState({ redirectToOrderConfirmation: true });
+
+            // Simple POST request with a JSON body using fetch
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn })
+            };
+            fetch('http://localhost:5000/reservations/', requestOptions)
+                .then(response => response.json())
+                .then(data => console.log("RESERVATION ID: " + data));
+
+                // Post reservation id to ROOMS BY ROOMS ID
         }
 
 

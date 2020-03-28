@@ -31,4 +31,22 @@ router.get('/', async (req, res) => {
     }
 })
 
+// POST REQUEST
+// create reservation
+router.post('/', async(req, res) => {
+
+    const reservation = new Reservation({
+        checkInDate: req.body.checkInDate,
+        checkOutDate: req.body.checkOutDate,
+        userID: req.body.userID,
+    });
+
+    try {
+        const newReservation = await reservation.save();
+        res.json(newReservation._id);
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+})
+
 module.exports = router;
