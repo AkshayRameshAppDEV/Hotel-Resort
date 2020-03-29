@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
 const Reservation = require('../models/reservations');
+const Room = require('../models/rooms');
 
 /*
     GET /reservations/{id}
@@ -39,13 +40,15 @@ router.post('/', async (req, res) => {
         checkInDate: req.body.checkInDate,
         checkOutDate: req.body.checkOutDate,
         userID: req.body.userID,
+        roomID: req.body.roomID
     });
 
     try {
         const newReservation = await reservation.save();
         res.json(newReservation._id);
 
-        let selectedUser = await User.update({ "_id": newReservation.userID }, { $push: { "reservations": newReservation._id } });
+        await User.update({ "_id": newReservation.userID }, { $push: { "reservations": newReservation._id } });
+        await Room.update({ "_id": newReservation.roomID }, { $push: { "reservations": newReservation._id } });
 
 
 
@@ -56,7 +59,7 @@ router.post('/', async (req, res) => {
 
 
 
-// delete room by id
+// delete reservation by id
 router.delete('/:id', getReservation, async (req, res) => {
 
     try {
@@ -65,6 +68,12 @@ router.delete('/:id', getReservation, async (req, res) => {
             { '_id': res.reservation.userID },
             { $pull: { "reservations": res.reservation._id } }
         );
+        await Room.update(
+            { '_id': res.reservation.roomID },
+            { $pull: { "reservations": res.reservation._id } }
+        );
+        console.log("Room ID:" + res.reservation.roomID)
+        console.log(await Room.find())
         await res.reservation.remove();
         res.json({ message: 'Deleted reservation' });
     } catch (error) {
@@ -72,7 +81,7 @@ router.delete('/:id', getReservation, async (req, res) => {
     }
 })
 
-// middleware function: gets room from database using id, and returns the room object.
+// middleware function: gets room from database using id, and returns the reservation object.
 async function getReservation(req, res, next) {
     let reservation;
 
