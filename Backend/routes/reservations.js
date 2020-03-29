@@ -54,4 +54,40 @@ router.post('/', async (req, res) => {
     }
 })
 
+
+
+// delete room by id
+router.delete('/:id', getReservation, async (req, res) => {
+
+    try {
+        console.log("user ID:" + res.reservation.userID)
+        await User.update(
+            { '_id': res.reservation.userID },
+            { $pull: { "reservations": res.reservation._id } }
+        );
+        await res.reservation.remove();
+        res.json({ message: 'Deleted reservation' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
+// middleware function: gets room from database using id, and returns the room object.
+async function getReservation(req, res, next) {
+    let reservation;
+
+    try {
+        reservation = await Reservation.findById(req.params.id);
+
+        if (!reservation) {
+            return res.status(400).json({ message: 'Cannot find reservation' });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+
+    res.reservation = reservation;
+    next();
+}
+
 module.exports = router;
