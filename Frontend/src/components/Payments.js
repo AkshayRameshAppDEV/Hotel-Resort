@@ -237,7 +237,7 @@ class Payments extends React.Component {
                 const requestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn })
+                    body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn, roomID: this.state.selectedRoomID })
                 };
                 fetch('http://localhost:5000/reservations/', requestOptions)
                     .then(response => response.json())
@@ -292,7 +292,7 @@ class Payments extends React.Component {
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn })
+                body: JSON.stringify({ checkInDate: this.state.checkInDateToPayment, checkOutDate: this.state.checkOutDateToPayment, userID: this.state.userIdLoggedIn, roomID: this.state.selectedRoomID})
             };
             fetch('http://localhost:5000/reservations/', requestOptions)
                 .then(response => response.json())

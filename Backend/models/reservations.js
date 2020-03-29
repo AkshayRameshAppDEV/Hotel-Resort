@@ -12,7 +12,12 @@ const reservationSchema = new mongoose.Schema({
     userID: {
         type: String,
         required: true
+    },
+    roomID: {
+        type: String,
+        required: true
     }
+
 });
 
 module.exports = mongoose.model('Reservation', reservationSchema);
