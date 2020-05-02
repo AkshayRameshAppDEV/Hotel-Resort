@@ -52,8 +52,8 @@ class UserProfile extends React.Component {
         const reservationsToRender = numbers.map((prop, i) =>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Checkin Date: {prop.checkInDate}</h5>
-                    <h5 class="mb-1">Checkout Date: {prop.checkOutDate}</h5>
+                    <h5 class="mb-1">Checkin Date: {prop.checkInDate.substring(0, 10)}</h5>
+                    <h5 class="mb-1">Checkout Date: {prop.checkOutDate.substring(0, 10)}</h5>
                     <button data-key={i} class="btn btn-danger" onClick={this.deleteReservation} >DELETE</button>
                 </div>
             </a>
