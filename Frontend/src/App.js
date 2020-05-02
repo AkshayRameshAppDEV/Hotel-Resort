@@ -14,6 +14,7 @@ import SignUp from './components/SignUp';
 import RoomList from './components/RoomList';
 import Payments from './components/Payments';
 import OrderConfirmation from './components/OrderConfirmation';
+import UserProfile from './components/UserProfile';
 
 // Entry point of the app. This will now act as the router component. 
 // Home.js is the homepage component.
@@ -46,6 +47,10 @@ function App() {
 
           <Route path="/orderconfirmation">
             <OrderConfirmation />
+          </Route>
+
+          <Route path="/userprofile">
+            <UserProfile />
           </Route>
 
           <Route path="/">
