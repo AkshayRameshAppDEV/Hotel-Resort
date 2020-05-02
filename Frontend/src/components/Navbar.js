@@ -14,7 +14,8 @@ class Navbar extends React.Component {
         super(props);
 
         this.state = {
-            firstName: ''
+            firstName: '',
+            userId: ''
         }
 
         console.log('availability loc from Navbar.js - New USER ID');
@@ -47,6 +48,10 @@ class Navbar extends React.Component {
                             {/* <a className="nav-item nav-link" href="#">Register <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Login</a> */}
                             <p className="navbar-brand">Hello {this.state.firstName}</p>
+                            <Link to={{
+                                pathname: "/userprofile",
+                                data: { userId: this.state.userId }
+                            }} className="nav-item nav-link">My profile</Link>
                         </div>
                     </div>
                 </nav>
@@ -75,6 +80,8 @@ class Navbar extends React.Component {
 
     componentDidMount = () => {
         if (this.props.location.data) {
+
+            this.setState({userId: this.props.location.data.newUserId});
 
             fetch('http://localhost:5000/users/' + this.props.location.data.newUserId).then(response => {
                 return response.json();
