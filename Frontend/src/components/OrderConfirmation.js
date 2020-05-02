@@ -68,7 +68,7 @@ class OrderConfirmation extends React.Component {
     }
 
     gotohomepressed = () => {
-        this.setState({redirectToHome: true});
+        this.setState({ redirectToHome: true });
     }
 }
 
