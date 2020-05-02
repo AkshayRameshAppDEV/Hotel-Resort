@@ -8,7 +8,15 @@ const Room = require('../models/rooms');
     GET /reservations/{id}
 
     return reservations that fall between checkin date and checkout date
+
+    
 */
+
+// get reservation by id
+router.get('/:id', getReservation, async(req, res) => {
+
+    res.json(res.reservation);
+})
 
 router.get('/', async (req, res) => {
 
