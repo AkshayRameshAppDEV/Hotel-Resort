@@ -44,8 +44,8 @@ class Listify extends React.Component {
                     <img src={require('../styles/' + room.roomType + ".jpg")} alt={room.roomType} height="300" width="400" />
                     <button style={{ height: '100px', width: '250px' }} data-key={i} class="btn btn-success" onClick={this.goToPayments}>RESERVE</button>
                 </div>
-                <br/>
-                <div style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bold'}} >
+                <br />
+                <div style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bold' }} >
                     <p class="mb-1">Type of Bed Available: {room.bedDetails}</p>
                     <p class="mb-1">Price :  ${room.price}</p>
                     <p class="mb-1">Total Number of Guests Who can stay in this room: {room.numOfGuests}</p>
@@ -82,8 +82,15 @@ class Listify extends React.Component {
 
         else {
             return (
-                <div class="list-group w-100">
-                    {this.state.roomsToRender}
+                <div class="container">
+                    <div style={{textAlign: 'center', backgroundColor: '#FFC107' }}>
+                        <label for="rooms">Search Rooms: </label>
+                        <input style={{ width: '250px' }} type="text" id="rooms" name="rooms" placeholder="Standard/Deluxe/Royal"/>
+                    </div>
+                    <div class="list-group">
+                        {this.state.roomsToRender}
+                    </div>
+
                 </div>
             );
 
